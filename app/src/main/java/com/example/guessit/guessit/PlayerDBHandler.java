@@ -36,11 +36,11 @@ public class PlayerDBHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TABLE = "CREATE TABLE " + TABLE_PLAYERS + "("
                 + KEY_ID + " INTEGER PRIMARY KEY,"
-                + KEY_GAMEID + " INTEGER,"
-                + KEY_AVATAR + " STRING,"
-                + KEY_USERNAME + " STRING,"
                 + KEY_SCORE + " INTEGER,"
-                + KEY_FACTION + " STRING)";
+                + KEY_USERNAME + " STRING,"
+                + KEY_FACTION + " STRING,"
+                + KEY_GAMEID + " INTEGER,"
+                + KEY_AVATAR + " STRING)";
         db.execSQL(CREATE_TABLE);
     }
 
@@ -57,12 +57,12 @@ public class PlayerDBHandler extends SQLiteOpenHelper {
     public void addPlayer(Players player) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues value = new ContentValues();
-        value.put(KEY_ID, player.getId()); //Game Id
-        value.put(KEY_GAMEID,player.getGameId());     // Game ID
-        value.put(KEY_AVATAR,player.getAvatar());     // Avatar possibly link to an img
-        value.put(KEY_USERNAME,player.getUserName());     // UserName of a player
+        value.put(KEY_ID, player.getId()); //Player Id
         value.put(KEY_SCORE, player.getScore());    //Score of that player
+        value.put(KEY_USERNAME,player.getUserName());     // UserName of a player
         value.put(KEY_FACTION, player.getFaction()); //Faction of that player
+        value.put(KEY_GAMEID, player.getGameId());     // Game ID
+        value.put(KEY_AVATAR,player.getAvatar());     // Avatar possibly link to an img
         db.insert(TABLE_PLAYERS, null, value);
         db.close(); //Close database connection
     }
@@ -70,8 +70,8 @@ public class PlayerDBHandler extends SQLiteOpenHelper {
     //Getting a player
     public Players getPlayer(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_PLAYERS, new String[] { KEY_ID}, KEY_ID + "=?",
-                new String[] { String.valueOf(id) }, null,null,null);
+        Cursor cursor = db.query(TABLE_PLAYERS, new String[] { KEY_ID,KEY_SCORE,KEY_USERNAME,KEY_FACTION, KEY_GAMEID , KEY_AVATAR}, KEY_ID + "=?",
+                new String[] { String.valueOf(id)}, null,null,null);
         if (cursor != null) {
             cursor.moveToFirst();
         }
@@ -81,7 +81,7 @@ public class PlayerDBHandler extends SQLiteOpenHelper {
     }
 
     //get all players
-    public List<Players> getAllGames() {
+    public List<Players> getAllPlayers() {
         List<Players> playerList = new ArrayList<Players>();
         // Select All Query
         String selectQuery = "SELECT * FROM " + TABLE_PLAYERS;

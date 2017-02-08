@@ -15,6 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AvatarActivity" />
+        <activity android:name=".MonsterActivity" />
+        <activity android:name=".HumanActivity"></activity>
     </application>
 
 </manifest>
