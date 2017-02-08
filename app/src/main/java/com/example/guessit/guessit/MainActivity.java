@@ -111,9 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 });
 
                 alert_setHint.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
-                    if (input.getText().equals) {
-
-                    }
+                    
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         hint = input.getText().toString();
