@@ -15,6 +15,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ScoreTable"
+            android:theme="@style/AppTheme.CustomPopUpWindowTheme">
+        </activity>
+        <activity android:name=".HintPage"
+            android:theme="@style/AppTheme.CustomPopUpWindowTheme">
+        </activity>
     </application>
 
 </manifest>

@@ -1,9 +1,17 @@
 package com.example.guessit.guessit;
+import android.app.Activity;
+import android.content.Intent;
+import android.view.View;
+import android.view.View.*;
+import android.widget.*;
+import android.view.View.OnClickListener;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import java.util.List;
+
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -26,5 +34,22 @@ public class MainActivity extends AppCompatActivity {
             String log = "Id: " + game.getId() + " Number of Player: " + game.getNumPlayers();
             Log.d("Games: : ", log);
         }
+
+        Button viewScoreTableButton = (Button) findViewById(R.id.viewScoreButton);
+        viewScoreTableButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(MainActivity.this, ScoreTable.class));
+            }
+        });
+
+        Button viewHintButton = (Button) findViewById(R.id.viewHintButton);
+        viewHintButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(MainActivity.this, HintPage.class));
+            }
+        });
+
     }
 }
