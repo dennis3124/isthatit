@@ -9,8 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.guessit.guessit.MainActivity"
-    android:background="@color/colorPrimary">
+    tools:context="com.example.guessit.guessit.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -21,11 +20,6 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="48dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome to GuessIT"
-        android:id="@+id/welcomeMsg" />
 
     <Button
         android:id="@+id/viewScoreButton"
@@ -62,11 +56,11 @@
             android:layout_width="208dp"
             android:id="@+id/button5"
             android:layout_centerInParent="false"
-            android:elevation="7dp"
+            android:elevation="6dp"
             android:layout_height="100dp"
             style="@style/Widget.AppCompat.Button.Colored"
             android:textColor="@android:color/white"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorPrimaryDark"
             android:onClick="humanFaction"
             android:layout_marginBottom="70dp"
             android:layout_alignParentBottom="true"

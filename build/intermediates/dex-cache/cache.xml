@@ -61,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="6741f78d599a990095e92dd2c84ff8dde09d2afd">
+        sha1="96ef09daf9edbbac69ffba37f357f991a70db86a">
         <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_bb1e45459678d989f1370533bdae1a7c6eef118c\classes.dex" />
     </item>
     <item
@@ -88,7 +88,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="771c7a84ca67513122e952b25ac57d6d7481551f">
+        sha1="f0328d24ea12cf90ca714f60b667724cb8d78563">
         <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_efe2f1afad7b9bd642a78965f975ed088ba8a714\classes.dex" />
     </item>
     <item
