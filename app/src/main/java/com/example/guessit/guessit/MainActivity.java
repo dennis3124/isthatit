@@ -1,6 +1,7 @@
 package com.example.guessit.guessit;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.view.View.*;
 import android.widget.*;
@@ -8,6 +9,7 @@ import android.view.View.OnClickListener;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import java.util.concurrent.TimeUnit;
 import android.util.Log;
 import java.util.List;
 
@@ -16,6 +18,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import org.w3c.dom.Text;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -31,7 +35,12 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.monster9,
     };
 
-
+    private CountDownTimer countDownTimer;
+    private Button timerStart;
+    public TextView timerView;
+    private static final String FORMAT = "%02d:%02d";
+    private long startTime = 130*1000;
+    private long interval = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +60,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 startActivity(new Intent(MainActivity.this, HintPage.class));
+            }
+        });
+
+        timerStart = (Button) findViewById(R.id.timerStart);
+        timerView = (TextView) findViewById(R.id.countDownTimer);
+
+        countDownTimer = new MyCountDownTimer(startTime, interval);
+        timerStart.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                //startActivity(new Intent(MainActivity.this, CustomTimer.class));
+                countDownTimer.start();
             }
         });
     }
@@ -94,6 +115,27 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public class MyCountDownTimer extends CountDownTimer{
+        public MyCountDownTimer(long startTime, long interval){
+            super(startTime, interval);
+        }
 
+        @Override
+        public void onFinish(){
+            timerView.setText("Done");
+        }
 
+        @Override
+        public void onTick(long millisUntilFinished){
+            timerView.setText(""+String.format(FORMAT,
+                    TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(
+                            TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
+                    TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
+                            TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+        }
+    }
 }
+
+
+
+

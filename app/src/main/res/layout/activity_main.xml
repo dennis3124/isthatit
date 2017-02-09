@@ -79,5 +79,30 @@
             android:layout_above="@+id/button5"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="80dp" />
+
+
+        <Button
+            android:text="START"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/timerStart"
+            android:onClick="timerStart"
+            android:layout_alignTop="@+id/viewHintButton"
+            android:layout_toLeftOf="@+id/viewHintButton"
+            android:layout_toStartOf="@+id/viewHintButton" />
+
+        <TextView
+            android:text="Timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/countDownTimer"
+            android:textSize="20dp"
+            android:layout_alignBaseline="@+id/timerStart"
+            android:layout_alignBottom="@+id/timerStart"
+            android:layout_toLeftOf="@+id/button5"
+            android:layout_toStartOf="@+id/button5" />
     </RelativeLayout>
 </RelativeLayout>
+
+    <!--android:layout_marginLeft="86dp"
+                android:layout_marginStart="86dp"-->
