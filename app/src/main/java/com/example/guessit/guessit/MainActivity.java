@@ -94,6 +94,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    public void toServer(View view) {
+        Intent intent = new Intent(this,ServerActivity.class);
+        startActivity(intent);
+    }
 
 }
