@@ -3,111 +3,111 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
-        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.1_1787f0dacd1924f2672014a726ff6fa2d76f1682\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
-        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.1_892e6724b76c31ed823766ec0d4f2d1554c8acf5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
-        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.1_f537465d146383fed763557298275619028bf9c8\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.1_fc213a13264cf62379a66606111fda8ec6880016\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
-        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.1_1c18d5bca3bb6053e083e256b9fdae34e7cff7a1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
-        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.1_64499165d2487cebf5928ee7a90e3bcb862259f9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6741f78d599a990095e92dd2c84ff8dde09d2afd">
-        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_bb1e45459678d989f1370533bdae1a7c6eef118c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
-        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.1_b41fdebbc535769383f34fdaa23bc18bef202369\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.1\jars\classes.jar"
+        jar="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
-        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.1_5473fd1d1892e59a615e345b6a2fba61e7d7bbdc\classes.dex" />
+        <dex dex="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.1.1_166e827ebf27be8ae74aa9f7f08e714e34ca342f/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="771c7a84ca67513122e952b25ac57d6d7481551f">
-        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_efe2f1afad7b9bd642a78965f975ed088ba8a714\classes.dex" />
+        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
+        <dex dex="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.1.1_cdf2ff82e5e6da72ab9069611b25573a162eacb3/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\zhan1803\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.1\support-annotations-25.1.1.jar"
+        jar="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
-        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.1_715fca798d811884465ab171a0277b3876ee9b19\classes.dex" />
+        sha1="0304c4780a98a8725a21a154026aa4aa9eb3f75c">
+        <dex dex="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_e6f35511677e699b75197b0179783fb56e2d8366/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.1\jars\classes.jar"
+        jar="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5dcea9557ae00a7c246429c2e7fbd2b72c6e9798">
+        <dex dex="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_dd7b0fc7b18293732e85274feac38fc40ee57128/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.1.1_f88142a1bae65eeea1071fec7bc3c9a084017a48/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
+        <dex dex="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.1.1_a714cae905eac5c1ab0e5b4b8dcb9a4fc9209baf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
+        <dex dex="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.1.1_f32af2323b62962246b10ccb456af3757d81f362/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.1.1_6a17e71176f908f30e56b34c2267bd437eb818b9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
+        <dex dex="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.1.1_ed925bf2978749a83de8a70101b0cc2356d2765e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
-        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.1.1_410cbcd81783ca787338dfe9264dda8b3736630c\classes.dex" />
+        <dex dex="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.1.1_ba782ff081987f13b47769df2e166da39c11355a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.1.1_4632259f989a603f5fe480e75be4c40cb4b92117/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yuzhuyang/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.1/support-annotations-25.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
+        <dex dex="/Users/yuzhuyang/Desktop/Spring17/cs408/isthatit/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.1.1_a7a7575d42ec1a9f28123434888fa72d3c88d3e9/classes.dex" />
     </item>
 
 </items>

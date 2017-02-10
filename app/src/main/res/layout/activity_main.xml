@@ -18,8 +18,7 @@
         android:elevation="1dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="48dp">
+        android:layout_alignParentStart="true">
 
     <TextView
         android:layout_width="wrap_content"
@@ -85,5 +84,16 @@
             android:layout_above="@+id/button5"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="80dp" />
+
+        <Button
+            android:text="SetTime"
+            android:layout_width="208dp"
+            android:id="@+id/btnSetTime"
+            android:elevation="6dp"
+            android:layout_height="100dp"
+            android:layout_above="@+id/button4"
+            android:layout_alignLeft="@+id/button4"
+            android:layout_alignStart="@+id/button4" />
+
     </RelativeLayout>
 </RelativeLayout>

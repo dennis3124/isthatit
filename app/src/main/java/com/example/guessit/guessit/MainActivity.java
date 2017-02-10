@@ -46,11 +46,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
         Button viewHintButton = (Button) findViewById(R.id.viewHintButton);
         viewHintButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 startActivity(new Intent(MainActivity.this, HintPage.class));
+            }
+        });
+
+
+        Button btn = (Button)findViewById(R.id.btnSetTime);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, TimeMActivity.class));
             }
         });
     }
