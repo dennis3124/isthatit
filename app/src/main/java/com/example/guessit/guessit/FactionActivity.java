@@ -5,9 +5,16 @@ import android.widget.*;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import java.util.concurrent.TimeUnit;
+import android.util.Log;
+import java.util.List;
 
 
 public class FactionActivity extends AppCompatActivity {
+import org.w3c.dom.Text;
+
+
+public class MainActivity extends AppCompatActivity {
     private int[] icons = {
             R.drawable.monster1,
             R.drawable.monster2,
@@ -87,5 +94,14 @@ public class FactionActivity extends AppCompatActivity {
         Intent intent = new Intent(this,ServerActivity.class);
         startActivity(intent);
     }
+    public class MyCountDownTimer extends CountDownTimer{
+        public MyCountDownTimer(long startTime, long interval){
+            super(startTime, interval);
+        }
+
+        @Override
+        public void onFinish(){
+            timerView.setText("Done");
+        }
 
 }
