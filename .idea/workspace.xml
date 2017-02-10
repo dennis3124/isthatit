@@ -46,10 +46,17 @@
             <state relative-caret-position="204">
               <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding>
+<<<<<<< HEAD
                 <element signature="e#4165#4166#0" expanded="true" />
                 <element signature="e#4215#4216#0" expanded="true" />
                 <element signature="e#4266#4267#0" expanded="true" />
                 <element signature="e#4315#4316#0" expanded="true" />
+=======
+                <element signature="e#4248#4249#0" expanded="true" />
+                <element signature="e#4298#4299#0" expanded="true" />
+                <element signature="e#4349#4350#0" expanded="true" />
+                <element signature="e#4398#4399#0" expanded="true" />
+>>>>>>> f086e496de6c06aac302d3aca8aa4e7d53e35c02
               </folding>
             </state>
           </provider>
@@ -58,13 +65,33 @@
       <file leaf-file-name="HintActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/guessit/guessit/HintActivity.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="306">
               <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+=======
+            <state relative-caret-position="323">
+              <caret line="37" column="38" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
+>>>>>>> f086e496de6c06aac302d3aca8aa4e7d53e35c02
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+=======
+      <file leaf-file-name="CustomTimer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/guessit/guessit/CustomTimer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+>>>>>>> f086e496de6c06aac302d3aca8aa4e7d53e35c02
       <file leaf-file-name="styles.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
           <provider selected="true" editor-type-id="text-editor">
@@ -2438,7 +2465,11 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26037735" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26037735" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+>>>>>>> f086e496de6c06aac302d3aca8aa4e7d53e35c02
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -2486,10 +2517,17 @@
         <state relative-caret-position="68">
           <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#4165#4166#0" expanded="true" />
             <element signature="e#4215#4216#0" expanded="true" />
             <element signature="e#4266#4267#0" expanded="true" />
             <element signature="e#4315#4316#0" expanded="true" />
+=======
+            <element signature="e#4248#4249#0" expanded="true" />
+            <element signature="e#4298#4299#0" expanded="true" />
+            <element signature="e#4349#4350#0" expanded="true" />
+            <element signature="e#4398#4399#0" expanded="true" />
+>>>>>>> f086e496de6c06aac302d3aca8aa4e7d53e35c02
           </folding>
         </state>
       </provider>
@@ -2585,10 +2623,17 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#4165#4166#0" expanded="true" />
             <element signature="e#4215#4216#0" expanded="true" />
             <element signature="e#4266#4267#0" expanded="true" />
             <element signature="e#4315#4316#0" expanded="true" />
+=======
+            <element signature="e#4248#4249#0" expanded="true" />
+            <element signature="e#4298#4299#0" expanded="true" />
+            <element signature="e#4349#4350#0" expanded="true" />
+            <element signature="e#4398#4399#0" expanded="true" />
+>>>>>>> f086e496de6c06aac302d3aca8aa4e7d53e35c02
           </folding>
         </state>
       </provider>
@@ -2659,10 +2704,17 @@
         <state relative-caret-position="459">
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#4165#4166#0" expanded="true" />
             <element signature="e#4215#4216#0" expanded="true" />
             <element signature="e#4266#4267#0" expanded="true" />
             <element signature="e#4315#4316#0" expanded="true" />
+=======
+            <element signature="e#4248#4249#0" expanded="true" />
+            <element signature="e#4298#4299#0" expanded="true" />
+            <element signature="e#4349#4350#0" expanded="true" />
+            <element signature="e#4398#4399#0" expanded="true" />
+>>>>>>> f086e496de6c06aac302d3aca8aa4e7d53e35c02
           </folding>
         </state>
       </provider>
@@ -2705,10 +2757,17 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#4165#4166#0" expanded="true" />
             <element signature="e#4215#4216#0" expanded="true" />
             <element signature="e#4266#4267#0" expanded="true" />
             <element signature="e#4315#4316#0" expanded="true" />
+=======
+            <element signature="e#4248#4249#0" expanded="true" />
+            <element signature="e#4298#4299#0" expanded="true" />
+            <element signature="e#4349#4350#0" expanded="true" />
+            <element signature="e#4398#4399#0" expanded="true" />
+>>>>>>> f086e496de6c06aac302d3aca8aa4e7d53e35c02
           </folding>
         </state>
       </provider>
@@ -2867,6 +2926,19 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/guessit/guessit/CustomTimer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+>>>>>>> f086e496de6c06aac302d3aca8aa4e7d53e35c02
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -2891,10 +2963,17 @@
         <state relative-caret-position="204">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#4165#4166#0" expanded="true" />
             <element signature="e#4215#4216#0" expanded="true" />
             <element signature="e#4266#4267#0" expanded="true" />
             <element signature="e#4315#4316#0" expanded="true" />
+=======
+            <element signature="e#4248#4249#0" expanded="true" />
+            <element signature="e#4298#4299#0" expanded="true" />
+            <element signature="e#4349#4350#0" expanded="true" />
+            <element signature="e#4398#4399#0" expanded="true" />
+>>>>>>> f086e496de6c06aac302d3aca8aa4e7d53e35c02
           </folding>
         </state>
       </provider>
@@ -2902,8 +2981,13 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/guessit/guessit/CustomTimer.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/guessit/guessit/HintActivity.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="306">
           <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+=======
+        <state relative-caret-position="323">
+          <caret line="37" column="38" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
+>>>>>>> f086e496de6c06aac302d3aca8aa4e7d53e35c02
           <folding />
         </state>
       </provider>
