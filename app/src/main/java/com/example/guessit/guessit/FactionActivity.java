@@ -1,24 +1,13 @@
 package com.example.guessit.guessit;
-import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
-import android.view.View.*;
 import android.widget.*;
-import android.view.View.OnClickListener;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import java.util.List;
-
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.EditText;
 
 
-public class MainActivity extends AppCompatActivity {
+public class FactionActivity extends AppCompatActivity {
     private int[] icons = {
             R.drawable.monster1,
             R.drawable.monster2,
@@ -36,13 +25,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_faction);
 
         Button viewScoreTableButton = (Button) findViewById(R.id.viewScoreButton);
         viewScoreTableButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                startActivity(new Intent(MainActivity.this, ScoreTable.class));
+                startActivity(new Intent(FactionActivity.this, ScoreTable.class));
             }
         });
 
@@ -50,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         viewHintButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                startActivity(new Intent(MainActivity.this, HintPage.class));
+                startActivity(new Intent(FactionActivity.this, HintPage.class));
             }
         });
     }
