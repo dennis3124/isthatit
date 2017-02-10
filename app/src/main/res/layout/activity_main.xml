@@ -79,5 +79,41 @@
             android:layout_above="@+id/button5"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="80dp" />
+
+        <Button
+            android:text="Ready"
+            android:id="@+id/button_toHintGiver"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:onClick="hintAct"
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:orientation="horizontal">
+            <Button
+                android:text="Set a hint"
+                android:id="@+id/button_setHint"
+                android:layout_marginTop="-5dip"
+                android:layout_marginRight="-5dip"
+                android:onClick="hintAct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:text="Hint"
+                android:id="@+id/button_hint"
+                android:layout_marginTop="-5dip"
+                android:layout_marginRight="-5dip"
+                android:onClick="hintAct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>
