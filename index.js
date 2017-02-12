@@ -48,9 +48,22 @@ var io = require('socket.io')(http);
 // Import the Guessit game file.
 var guessit= require('./guessit');
 
+
+// Create a simple Express application
+app.configure(function() {
+    // Turn down the logging activity
+    app.use(express.logger('dev'));
+
+    // Serve static html, js, css, and image files from the 'public' directory
+    app.use(express.static(__dirname));
+});
+
 // Reduce the logging output of Socket.IO
 io.set('log level',1);
-
+io.configure(function () {  
+  io.set("transports", ["xhr-polling"]); 
+  io.set("polling duration", 10); 
+});
 io.on('connection',function(socket){
     console.log('one user connected '+socket.id);
     guessit.initGame(io, socket);
@@ -71,6 +84,6 @@ io.on('connection',function(socket){
 
 
 
-http.listen(8080,function(){
+http.listen(process.env.PORT || 80800 ,function(){
     console.log('server listening on port 8080');
 })
