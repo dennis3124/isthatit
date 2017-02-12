@@ -159,5 +159,3 @@ function sendWord(wordPoolIndex, gameId) {
     var data = getWordData(wordPoolIndex);
     io.sockets.in(data.gameId).emit('newWordData', data);
 }
-
-]
