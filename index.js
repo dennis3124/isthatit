@@ -75,5 +75,5 @@ io.on('connection',function(socket){
 
 
 http.listen(process.env.PORT || 80800 ,function(){
-    console.log('server listening on port 8080');
+    console.log('server listening on port ' + String(process.env.PORT));
 })
