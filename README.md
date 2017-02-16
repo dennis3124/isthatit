@@ -1,2 +1,0 @@
-# isthatit
-Its a game!
