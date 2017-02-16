@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
+        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.1_1787f0dacd1924f2672014a726ff6fa2d76f1682\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\zhan1803\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp-ws\2.3.0\7896d229b6aa7884552ab9c23de54c7eb0de8203\okhttp-ws-2.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7896d229b6aa7884552ab9c23de54c7eb0de8203">
+        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-ws-2.3.0_073df4b4ff1e9f6ff1a0bdcbbd48c97297377c25\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
+        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.1_892e6724b76c31ed823766ec0d4f2d1554c8acf5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\zhan1803\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.3.0\1b355f73402020c5a0dcca58affc3ec3dfeabac1\okio-1.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1b355f73402020c5a0dcca58affc3ec3dfeabac1">
+        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.3.0_fc1301a7fbce043804a4de9a0e73b585678ef2d4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
+        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.1_f537465d146383fed763557298275619028bf9c8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\zhan1803\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp\2.3.0\2e7bc7033dc2c8423e661224171b3133fb155b28\okhttp-2.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2e7bc7033dc2c8423e661224171b3133fb155b28">
+        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-2.3.0_c6288cc8b59fd90ff2768c12d7920277e5daaa50\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.1_fc213a13264cf62379a66606111fda8ec6880016\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
+        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.1_1c18d5bca3bb6053e083e256b9fdae34e7cff7a1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.1_64499165d2487cebf5928ee7a90e3bcb862259f9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7019ec19006a8b1f312fbe2a381d816c9b7a8f85">
+        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_bb1e45459678d989f1370533bdae1a7c6eef118c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\zhan1803\.gradle\caches\modules-2\files-2.1\com.github.nkzawa\socket.io-client\0.5.0\7d40c590385ba95b34920eb89c986757a79968af\socket.io-client-0.5.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7d40c590385ba95b34920eb89c986757a79968af">
+        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\socket.io-client-0.5.0_3993128870ee85371251f59534d81a1d6cd28e7f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.1_b41fdebbc535769383f34fdaa23bc18bef202369\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
+        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.1_5473fd1d1892e59a615e345b6a2fba61e7d7bbdc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="78a61d1c53bc1d81f8d9df22b76afda684eb9131">
+        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_efe2f1afad7b9bd642a78965f975ed088ba8a714\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\zhan1803\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.1\support-annotations-25.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
+        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.1_715fca798d811884465ab171a0277b3876ee9b19\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\zhan1803\.gradle\caches\modules-2\files-2.1\com.github.nkzawa\engine.io-client\0.5.0\72f54ba32a0d735630ebc33a5c39e14a5dd45492\engine.io-client-0.5.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="72f54ba32a0d735630ebc33a5c39e14a5dd45492">
+        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\engine.io-client-0.5.0_37aa35656f0fb18c380a490d5863863abca87915\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
+        <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.1.1_410cbcd81783ca787338dfe9264dda8b3736630c\classes.dex" />
+    </item>
+
+</items>
