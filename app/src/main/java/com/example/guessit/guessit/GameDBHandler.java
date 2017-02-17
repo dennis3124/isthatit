@@ -114,3 +114,7 @@ public class GameDBHandler extends SQLiteOpenHelper {
         db.close();
     }
 }
+
+
+
+

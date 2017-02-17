@@ -24,45 +24,90 @@
         android:layout_marginTop="11dp" />
 
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/hero8"
-        android:layout_marginLeft="17dp"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="51dp"
-        android:id="@+id/imageButton5"
-        android:layout_below="@+id/textView5"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/hero7"
-        android:id="@+id/imageButton6"
-        android:layout_alignTop="@+id/imageButton5"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="13dp"
-        android:layout_marginEnd="13dp" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         app:srcCompat="@drawable/hero4"
         android:layout_marginTop="20dp"
         android:id="@+id/imageButton7"
         android:layout_below="@+id/imageButton5"
         android:layout_alignLeft="@+id/imageButton5"
-        android:layout_alignStart="@+id/imageButton5" />
+        android:layout_alignStart="@+id/imageButton5"
+        android:onClick="goToWaitingPg"/>
 
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         app:srcCompat="@drawable/hero6"
         android:id="@+id/imageButton8"
         android:layout_alignTop="@+id/imageButton7"
         android:layout_alignLeft="@+id/imageButton6"
-        android:layout_alignStart="@+id/imageButton6" />
+        android:layout_alignStart="@+id/imageButton6"
+        android:onClick="goToWaitingPg"/>
+
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:onClick="goToWaitingPg"
+        app:srcCompat="@drawable/hero5"
+        android:layout_below="@+id/imageButton7"
+        android:layout_alignLeft="@+id/imageButton7"
+        android:layout_alignStart="@+id/imageButton7"
+        android:layout_marginTop="12dp"
+        android:id="@+id/imageButton13" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/hero7"
+        android:id="@+id/imageButton6"
+        android:onClick="goToWaitingPg"
+        android:layout_alignTop="@+id/imageButton5"
+        android:layout_toRightOf="@+id/imageButton5"
+        android:layout_toEndOf="@+id/imageButton5"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/hero8"
+        android:id="@+id/imageButton5"
+        android:onClick="goToWaitingPg"
+        android:layout_below="@+id/textView5"
+        android:layout_alignLeft="@+id/textView5"
+        android:layout_alignStart="@+id/textView5"
+        android:layout_marginTop="19dp" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:onClick="goToWaitingPg"
+        app:srcCompat="@drawable/hero3"
+        android:layout_alignTop="@+id/imageButton13"
+        android:layout_alignLeft="@+id/imageButton8"
+        android:layout_alignStart="@+id/imageButton8"
+        android:id="@+id/imageButton15" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:onClick="goToWaitingPg"
+        app:srcCompat="@drawable/hero2"
+        android:layout_below="@+id/imageButton13"
+        android:layout_alignLeft="@+id/imageButton13"
+        android:layout_alignStart="@+id/imageButton13"
+        android:layout_marginTop="12dp"
+        android:id="@+id/imageButton16" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/hero1"
+        android:onClick="goToWaitingPg"
+        android:id="@+id/imageButton14"
+        android:layout_alignTop="@+id/imageButton16"
+        android:layout_alignLeft="@+id/imageButton15"
+        android:layout_alignStart="@+id/imageButton15" />
 
 </RelativeLayout>

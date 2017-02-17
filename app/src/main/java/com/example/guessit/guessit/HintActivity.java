@@ -4,6 +4,10 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+<<<<<<< HEAD
+=======
+import android.content.Intent;
+>>>>>>> origin/master
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -64,12 +68,25 @@ public class HintActivity extends AppCompatActivity {
                 alert_toHintGiver.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         //Toast.makeText(MainActivity.this, "You are the hint giver!", Toast.LENGTH_SHORT).show();
+<<<<<<< HEAD
                     }
                 });
                 alert_toHintGiver.show();
             }
         });
 
+=======
+
+                    }
+                });
+                startActivity(new Intent(view.getContext(), GamePage.class));
+                alert_toHintGiver.show();
+
+            }
+        });
+
+
+>>>>>>> origin/master
         // Set hint when the hint giver is notified
 
         button_setHint = (Button) findViewById(R.id.button_setHint);

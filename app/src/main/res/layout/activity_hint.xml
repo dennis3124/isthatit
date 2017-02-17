@@ -11,14 +11,38 @@
     tools:context="com.example.guessit.guessit.HintActivity">
 
     <TextView
+<<<<<<< HEAD
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="GuessIT" />
+=======
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Round!
+Waiting for all players ..."
+        android:textSize="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:id="@+id/textView10" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="40dp">
+
+    </LinearLayout>
+>>>>>>> origin/master
 
     <Button
         android:text="Ready"
         android:id="@+id/button_toHintGiver"
+<<<<<<< HEAD
         android:layout_marginTop="50dp"
         android:layout_gravity="center"
         android:textAlignment="center"
@@ -53,3 +77,35 @@
 
 
 </RelativeLayout>
+=======
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/textView10"
+        android:layout_alignEnd="@+id/textView10"
+        android:layout_marginRight="55dp"
+        android:layout_marginEnd="55dp" />
+
+    <Button
+        android:text="Hint"
+        android:id="@+id/button_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/button_toHintGiver"
+        android:layout_toStartOf="@+id/button_toHintGiver" />
+
+    <Button
+        android:text="Set a hint"
+        android:id="@+id/button_setHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+</RelativeLayout>
+>>>>>>> origin/master
