@@ -31,17 +31,7 @@ import org.w3c.dom.Text;
 
 
 public class MainActivity extends AppCompatActivity {
-    private int[] icons = {
-            R.drawable.monster1,
-            R.drawable.monster2,
-            R.drawable.monster3,
-            R.drawable.monster4,
-            R.drawable.monster5,
-            R.drawable.monster6,
-            R.drawable.monster7,
-            R.drawable.monster8,
-            R.drawable.monster9,
-    };
+
 
     private CountDownTimer countDownTimer;
     private Button timerStart;

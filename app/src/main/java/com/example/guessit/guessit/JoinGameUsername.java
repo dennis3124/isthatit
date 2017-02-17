@@ -2,6 +2,7 @@ package com.example.guessit.guessit;
 
 import android.content.Intent;
 import android.graphics.Paint;
+import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +18,9 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Handler;
+
+import static android.R.id.message;
 
 
 public class JoinGameUsername extends AppCompatActivity {
@@ -32,6 +36,7 @@ public class JoinGameUsername extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Constants.socket.on("error", errorHandler);
+        Constants.socket.on("playerJoinedRoom", playerJoinedRoom);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join_game_username);
         check = (Button)findViewById(R.id.checkusername);
@@ -40,7 +45,24 @@ public class JoinGameUsername extends AppCompatActivity {
         secret = (EditText)findViewById(R.id.secretcode);
         submit.setEnabled(false);
         player = new Players(StartGameUsername.globalplayercount, 0, "", "", StartGameUsername.globalgameid, "");
+
     }
+    private Emitter.Listener playerJoinedRoom = new Emitter.Listener() {
+        @Override
+        public void call(Object... args) {
+            JSONObject data = (JSONObject) args[0];
+            String socketId;
+            try {
+                socketId = data.getString("socketId");
+            } catch (JSONException e) {
+               return;
+            }
+
+            setSocketId(socketId);
+        }
+
+    };
+
     private Emitter.Listener errorHandler = new Emitter.Listener() {
         @Override
         public void call(final Object... args) {
@@ -57,8 +79,22 @@ public class JoinGameUsername extends AppCompatActivity {
 
     };
 
+
     public void handleNoRoom(String msg) {
         Log.d("No Room:", msg);
+        runOnUiThread(new Runnable() {
+            public void run() {
+                Toast.makeText(getApplicationContext(), "The Room Does Not Exist", Toast.LENGTH_SHORT).show();
+                submit.setEnabled(false);
+            }
+        });
+
+        //error = true;
+    }
+
+    public void setSocketId(String sockId) {
+        Constants.sockId = sockId;
+        System.out.printf("Socket ID is %s",sockId);
     }
     public void checkUserName (View view){
         // Check if shorter than 1
@@ -78,6 +114,11 @@ public class JoinGameUsername extends AppCompatActivity {
             //pdb.addPlayer(player);
             // Added player, so increment count
             StartGameUsername.globalplayercount++;
+            Constants.gameId = secret.getText().toString();
+            data.put("playerName", Constants.playerName);
+            data.put("gameId" , Constants.gameId);
+            JSONObject obj = new JSONObject(data);
+            Constants.socket.emit("playerJoinGame", obj);
             submit.setEnabled(true);
         }
         // Check if in database table already
@@ -85,13 +126,6 @@ public class JoinGameUsername extends AppCompatActivity {
     }
 
     public void submitCode(View view) {
-        Constants.gameId = secret.getText().toString();
-        data.put("playerName", Constants.playerName);
-        data.put("gameId" , Constants.gameId);
-        JSONObject obj = new JSONObject(data);
-        Constants.socket.emit("playerJoinGame", obj);
-
-        // Go to waiting page
         startActivity(new Intent(this, ChooseFaction.class));
 
     }

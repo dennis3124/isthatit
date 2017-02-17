@@ -1,5 +1,6 @@
 var io;
 var gameSocket;
+var players = [];
 
 /**
  * This function is called by index.js to initialize a new game instance.
@@ -21,6 +22,10 @@ exports.initGame = function(sio, socket){
     gameSocket.on('playerJoinGame', playerJoinGame);
     gameSocket.on('playerAnswer', playerAnswer);
     gameSocket.on('playerRestart', playerRestart);
+    gameSocket.on('getAllPlayers', getAllPlayers);
+    gameSocket.on('putPlayer', putPlayer);
+    gameSocket.on('disconnect', removePlayer);
+    
 }
 
 /* *******************************
@@ -38,8 +43,8 @@ function hostCreateNewGame() {
 
     // Return the Room ID (gameId) and the socket ID (mySocketId) to the browser client
     this.emit('newGameCreated', {gameId: thisGameId, mySocketId: this.id});
-    console.log(this.id.toString());
-    console.log(thisGameId.toString());
+    //console.log(this.id.toString());
+    //console.log(thisGameId.toString());
     // Join the Room and wait for the players
     this.join(thisGameId.toString());
 };
@@ -106,14 +111,32 @@ function playerJoinGame(data) {
 
         // Join the room
         //console.log('Player ' + data.playerName + ' joining game: ' + data.gameId );
-
+        this.join(data.gameId);
+        data.socketId = this.id;
         // Emit an event notifying the clients that the player has joined the room.
-        io.sockets.in(data.gameId).emit('playerJoinedRoom', data);
+        //console.log(data);
+        io.in(data.gameId).emit('playerJoinedRoom', data);
 
     } else {
         // Otherwise, send an error message back to the player.
         io.emit('error',{message: "This room does not exist."} );
     }
+}
+
+
+function getAllPlayers(data) {
+    var room = io.sockets.adapter.rooms[data.gameId];
+    //console.log(room.sockets);
+    var sock;
+    var playersInRoom = [];
+
+    for(var i = 0; i < players.length; i++) {
+        if(room.sockets[players[i].socketId]==true) {
+            playersInRoom.push(players[i]);
+        }
+    }
+    //console.log(playersInRoom);
+    
 }
 
 /**
@@ -138,6 +161,22 @@ function playerRestart(data) {
     // Emit the player's data back to the clients in the game room.
     data.playerId = this.id;
     io.sockets.in(data.gameId).emit('playerJoinedRoom',data);
+}
+
+function putPlayer(data) {
+    players.push(data);
+    //console.log("putting data");
+    //console.log(data);
+
+}
+
+function removePlayer() {
+    for(var i = 0; i < players.length; i++) {
+        if (players[i].socketId==this.id) {
+            players.splice(i,1);
+        }
+    }
+    
 }
 
 /* *************************

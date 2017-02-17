@@ -10,55 +10,15 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.guessit.guessit.JoinGameUsername">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enter Username:"
-        android:id="@+id/textView3"
-        android:textSize="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp" />
-
     <Button
         android:id="@+id/checkusername"
         android:text="Check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:width="300dp"
-        android:layout_marginTop="25dp"
-        android:layout_below="@+id/username"
-        android:layout_centerHorizontal="true"
-        android:onClick="checkUserName"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ask the game creator for the secret code."
-        android:layout_marginTop="37dp"
-        android:id="@+id/textView"
-        android:layout_below="@+id/checkusername"
+        android:onClick="checkUserName"
+        android:layout_above="@+id/submitcode"
         android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="300dp"
-        android:id="@+id/secretcode"
-        android:layout_below="@+id/textView"
-        android:layout_alignLeft="@+id/submitcode"
-        android:layout_alignStart="@+id/submitcode"
-        android:layout_marginTop="37dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/username"
-        android:width="300dp"
-        android:layout_marginTop="22dp"
-        android:layout_below="@+id/textView3"
-        android:layout_alignLeft="@+id/checkusername"
-        android:layout_alignStart="@+id/checkusername" />
 
     <Button
         android:layout_width="wrap_content"
@@ -66,9 +26,59 @@
         android:id="@+id/submitcode"
         android:width="300dp"
         android:text="Submit"
-        android:layout_below="@+id/secretcode"
+        android:onClick="submitCode"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/secretcode"
+        android:layout_alignStart="@+id/secretcode"
+        android:layout_marginBottom="116dp" />
+
+    <TextView
+        android:text="Ask the game creator for the secret code."
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/checkusername"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="71dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Game Code:"
+        android:id="@+id/textView15"
+        android:textSize="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="300dp"
+        android:id="@+id/secretcode"
+        android:layout_below="@+id/textView15"
+        android:layout_alignLeft="@+id/username"
+        android:layout_alignStart="@+id/username"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Username:"
+        android:id="@+id/textView3"
+        android:textSize="30dp"
+        android:layout_marginTop="80dp"
+        android:layout_below="@+id/textView15"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/username"
+        android:width="300dp"
+        android:layout_below="@+id/textView3"
         android:layout_alignLeft="@+id/checkusername"
         android:layout_alignStart="@+id/checkusername"
-        android:onClick="submitCode"/>
+        android:layout_marginTop="55dp" />
 
 </RelativeLayout>
