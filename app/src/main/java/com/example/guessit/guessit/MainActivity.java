@@ -9,6 +9,8 @@ import android.view.View.OnClickListener;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import java.net.URISyntaxException;
 import java.util.concurrent.TimeUnit;
 import android.util.Log;
 import java.util.List;
@@ -19,6 +21,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.github.nkzawa.emitter.Emitter;
+import com.github.nkzawa.socketio.client.IO;
+import com.github.nkzawa.socketio.client.Socket;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 
@@ -42,15 +50,55 @@ public class MainActivity extends AppCompatActivity {
     private long startTime = 130*1000;
     private long interval = 1000;
 
+    private Socket socket;
+    {
+        try {
+            socket = IO.socket(Constants.testUrl);
+            Constants.socket=socket;
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Constants.socket.disconnect();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_start_join_game);
+        Constants.socket.on("newGameCreated", newGameCreated);
+        Constants.socket.connect();
+    }
 
+    private Emitter.Listener newGameCreated = new Emitter.Listener() {
+        @Override
+        public void call(final Object... args) {
+            JSONObject data = (JSONObject) args[0];
+            String gameId;
+            String socketId;
+
+            try {
+                gameId = data.getString("gameId");
+                socketId = data.getString("mySocketId");
+            }catch (JSONException e) {
+                return;
+            }
+            addToConstants(gameId, socketId);
+        }
+
+    };
+
+    public void addToConstants(String gameId, String socketId) {
+        Constants.gameId = gameId;
+        Constants.sockId = socketId;
     }
 
     public void startGame(View view) {
         // Navigate to start game and enter user name page
+        Constants.socket.emit("hostCreateNewGame");
         startActivity(new Intent(this, StartGameUsername.class));
     }
 

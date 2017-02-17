@@ -38,9 +38,6 @@
 //     console.log('client connected');
 //     guessit.initGame(io, socket);
 // });
-/**
- * Created by sreejeshpillai on 09/05/15.
- */
 var express = require('express')
 var app = express();
 var http = require('http').Server(app);
