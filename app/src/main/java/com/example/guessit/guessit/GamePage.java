@@ -1,9 +1,14 @@
 package com.example.guessit.guessit;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -37,6 +42,7 @@ public class GamePage extends AppCompatActivity {
     private static final String FORMAT = "%02d:%02d";
     private long startTime = 130*1000;
     private long interval = 1000;
+    private AlertDialog.Builder alert_hint;
 
 
     @Override
@@ -59,7 +65,17 @@ public class GamePage extends AppCompatActivity {
         viewHintButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                startActivity(new Intent(GamePage.this, HintPage.class));
+                alert_hint = new AlertDialog.Builder(GamePage.this);
+                alert_hint.setTitle("Hint");
+                alert_hint.setMessage(HintActivity.hint);
+                alert_hint.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        //Toast.makeText(MainActivity.this, "You are the hint giver!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                alert_hint.show();
+                //startActivity(new Intent(GamePage.this, HintPage.class));
             }
         });
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {

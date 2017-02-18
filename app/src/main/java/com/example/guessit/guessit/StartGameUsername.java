@@ -52,7 +52,7 @@ public class StartGameUsername extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Awesome username!", Toast.LENGTH_LONG).show();
             player.setUserName(username.getText().toString());
             Constants.playerName = username.getText().toString();
-           // pdb.addPlayer(player);
+            // pdb.addPlayer(player);
             // Added player, so increment count
             globalplayercount++;
             gotofaction.setEnabled(true);

@@ -1,17 +1,17 @@
- package com.example.guessit.guessit;
-        import android.content.Intent;
-        import android.view.View;
-        import android.widget.*;
+package com.example.guessit.guessit;
+import android.content.Intent;
+import android.view.View;
+import android.widget.*;
 
-        import android.support.v7.app.AppCompatActivity;
-        import android.os.Bundle;
-        import java.util.concurrent.TimeUnit;
-        import android.util.Log;
-        import java.util.List;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import java.util.concurrent.TimeUnit;
+import android.util.Log;
+import java.util.List;
 
 
 //public class FactionActivity extends AppCompatActivity {
-        import org.w3c.dom.Text;
+import org.w3c.dom.Text;
 
 
 public class FactionActivity extends AppCompatActivity {

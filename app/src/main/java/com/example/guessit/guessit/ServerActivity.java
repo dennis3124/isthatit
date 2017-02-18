@@ -1,22 +1,20 @@
+package com.example.guessit.guessit;
 
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-        package com.example.guessit.guessit;
+import com.github.nkzawa.socketio.client.IO;
+import com.github.nkzawa.socketio.client.Socket;
+import com.github.nkzawa.emitter.Emitter;
 
-        import android.support.v7.app.AppCompatActivity;
-        import android.os.Bundle;
-        import android.util.Log;
-        import android.view.View;
-        import android.widget.LinearLayout;
-        import android.widget.TextView;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-        import com.github.nkzawa.socketio.client.IO;
-        import com.github.nkzawa.socketio.client.Socket;
-        import com.github.nkzawa.emitter.Emitter;
-
-        import org.json.JSONException;
-        import org.json.JSONObject;
-
-        import java.net.URISyntaxException;
+import java.net.URISyntaxException;
 
 public class ServerActivity extends AppCompatActivity {
 

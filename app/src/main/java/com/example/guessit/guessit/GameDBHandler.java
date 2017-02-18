@@ -30,8 +30,8 @@ public class GameDBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TABLE = "CREATE TABLE " + TABLE_GAMES + "("
-                                + KEY_ID + " INTEGER PRIMARY KEY,"
-                                + KEY_NUMPLAYER + " INTEGERZ)";
+                + KEY_ID + " INTEGER PRIMARY KEY,"
+                + KEY_NUMPLAYER + " INTEGERZ)";
         db.execSQL(CREATE_TABLE);
     }
 
@@ -114,7 +114,3 @@ public class GameDBHandler extends SQLiteOpenHelper {
         db.close();
     }
 }
-
-
-
-

@@ -4,10 +4,9 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-<<<<<<< HEAD
-=======
 import android.content.Intent;
->>>>>>> origin/master
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,13 +15,19 @@ import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
 import java.util.List;
+import java.util.Timer;
+import java.util.prefs.PreferenceChangeEvent;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class HintActivity extends AppCompatActivity {
 
@@ -33,32 +38,50 @@ public class HintActivity extends AppCompatActivity {
     private Button button_toHintGiver;
     private Button button_setHint;
     private Button button_hint;
-    private String hint = "";
+    private TextView gameId;
+    static String hint = "";
     final Context context = this;
+    public ImageView imageArray[] = new ImageView[8];
+    public int count=0;
+    private Integer[] Imgid = {R.id.imageView12,R.id.imageView13,R.id.imageView14,R.id.imageView15,R.id.imageView16,R.id.imageView17,R.id.imageView18,R.id.imageView19 };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hint);
-        GameDBHandler db = new GameDBHandler(this);
-
-        //insert a game (Test)
-        Log.d("Insert: ", "Inserting ..");
-        db.createGame(new Games(1));
-        db.createGame(new Games(2));
-        db.createGame(new Games(3));
-
-        //Read all games
-        Log.d("Reading: ", "Reading all Games");
-        List<Games> games = db.getAllGames();
-
-        for(Games game : games) {
-            String log = "Id: " + game.getId() + " Number of Player: " + game.getNumPlayers();
-            Log.d("Games: : ", log);
+        JSONObject obj = new JSONObject();
+        try {
+            obj.put("gameId", Constants.gameId);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Constants.socket.emit("getAllPlayers", obj);
+        for (; count < obj.length(); count++) {
+            imageArray[count] = (ImageView) findViewById(Imgid[count]);
         }
 
-        //Pop up notification if all players are ready
+        //GameDBHandler db = new GameDBHandler(this);
 
+        //insert a game (Test)
+//        Log.d("Insert: ", "Inserting ..");
+//        db.createGame(new Games(1));
+//        db.createGame(new Games(2));
+//        db.createGame(new Games(3));
+
+        //Read all games
+//        Log.d("Reading: ", "Reading all Games");
+//        List<Games> games = db.getAllGames();
+
+//        for(Games game : games) {
+//            String log = "Id: " + game.getId() + " Number of Player: " + game.getNumPlayers();
+//            Log.d("Games: : ", log);
+//        }
+
+        //Pop up notification if all players are ready
+        gameId = (TextView) findViewById(R.id.textView16);
+        String newGameIdString = gameId.getText().toString();
+        newGameIdString += Constants.gameId;
+        gameId.setText(newGameIdString);
         button_toHintGiver = (Button) findViewById(R.id.button_toHintGiver);
         button_toHintGiver.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,14 +91,6 @@ public class HintActivity extends AppCompatActivity {
                 alert_toHintGiver.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         //Toast.makeText(MainActivity.this, "You are the hint giver!", Toast.LENGTH_SHORT).show();
-<<<<<<< HEAD
-                    }
-                });
-                alert_toHintGiver.show();
-            }
-        });
-
-=======
 
                     }
                 });
@@ -86,7 +101,6 @@ public class HintActivity extends AppCompatActivity {
         });
 
 
->>>>>>> origin/master
         // Set hint when the hint giver is notified
 
         button_setHint = (Button) findViewById(R.id.button_setHint);
@@ -124,6 +138,7 @@ public class HintActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         hint = input.getText().toString();
+
                         Toast.makeText(context, "Hint set successfully!", Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -133,6 +148,18 @@ public class HintActivity extends AppCompatActivity {
                         dialog.cancel();
                     }
                 });
+                /*
+                Intent intent = new Intent(view.getContext(), HintPage.class);
+                intent.putExtra("Hint", hint);
+                startActivity(intent);
+
+                SharedPreferences share_hint = getSharedPreferences("hint_to_hintPage", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = share_hint.edit();
+                editor.putString("hint_", hint);
+                //editor.remove("hint");
+                editor.apply();
+                */
+
                 alert_setHint.show();
             }
 
@@ -147,23 +174,23 @@ public class HintActivity extends AppCompatActivity {
 
         // Check hint
 
-        button_hint = (Button) findViewById(R.id.button_hint);
-        button_hint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //when this button is clicked, show the alert
-                alert_hint = new AlertDialog.Builder(context);
-                alert_hint.setTitle("Hint");
-                alert_hint.setMessage(hint);
-                alert_hint.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int id) {
-                        //Toast.makeText(MainActivity.this, "You are the hint giver!", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                alert_hint.show();
-            }
-        });
+//        button_hint = (Button) findViewById(R.id.button_hint);
+//        button_hint.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //when this button is clicked, show the alert
+//                alert_hint = new AlertDialog.Builder(context);
+//                alert_hint.setTitle("Hint");
+//                alert_hint.setMessage(hint);
+//                alert_hint.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int id) {
+//                        //Toast.makeText(MainActivity.this, "You are the hint giver!", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//                alert_hint.show();
+//            }
+//        });
 
     }
 }
