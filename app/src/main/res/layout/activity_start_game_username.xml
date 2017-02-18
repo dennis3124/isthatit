@@ -38,17 +38,7 @@ tools:context="com.example.guessit.guessit.StartGameUsername">
     android:layout_centerHorizontal="true"
     android:layout_marginTop="25dp" />
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Enter Username"
-    android:id="@+id/textView6"
-    android:layout_below="@+id/textView8"
-    android:layout_centerHorizontal="true"
-    android:layout_marginTop="24dp"
-    android:textSize="30dp"/>
-
-<EditText
+    <EditText
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/usernamefield"
@@ -77,5 +67,14 @@ tools:context="com.example.guessit.guessit.StartGameUsername">
     android:onClick="gotoFaction"
     android:layout_below="@+id/checkusername2"
     android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Username"
+        android:id="@+id/textView6"
+        android:textSize="30dp"
+        android:layout_above="@+id/usernamefield"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
