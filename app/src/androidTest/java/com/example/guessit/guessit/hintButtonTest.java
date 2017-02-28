@@ -54,9 +54,9 @@ public class hintButtonTest {
     @Test
     public void hintButton_HintActivity() {
         // Press the hint button
-        onView(withId(R.id.button_hint)).perform(click());
+        onView(withId(R.id.viewHintButton)).perform(click());
         // Check if an dialog is popped up
-        onView(withId(R.id.button_hint)).check(matches(isEnabled()));
+        onView(withId(R.id.viewHintButton)).check(matches(isEnabled()));
     }
 
 }
