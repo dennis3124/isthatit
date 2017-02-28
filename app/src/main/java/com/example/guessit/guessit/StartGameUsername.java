@@ -7,11 +7,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class StartGameUsername extends AppCompatActivity {
     EditText username;
     Button gotofaction;
+    TextView gameId;
     static int globalplayercount = 0; // increment to 1, 2
     static int globalgameid = 100; // increment to 101, 102 etc. (prevent unique error)
     Players player;
@@ -23,6 +25,8 @@ public class StartGameUsername extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_game_username);
         username = (EditText)findViewById(R.id.usernamefield);
+        gameId = (TextView)findViewById(R.id.textView9);
+        gameId.setText(Constants.gameId);
         gotofaction = (Button)findViewById(R.id.gotofaction);
         gotofaction.setEnabled(false);
         player = new Players(globalplayercount, 0, "", "", globalgameid, "");
@@ -47,7 +51,8 @@ public class StartGameUsername extends AppCompatActivity {
         } else {
             Toast.makeText(getApplicationContext(), "Awesome username!", Toast.LENGTH_LONG).show();
             player.setUserName(username.getText().toString());
-            pdb.addPlayer(player);
+            Constants.playerName = username.getText().toString();
+           // pdb.addPlayer(player);
             // Added player, so increment count
             globalplayercount++;
             gotofaction.setEnabled(true);

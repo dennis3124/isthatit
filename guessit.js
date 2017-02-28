@@ -1,5 +1,6 @@
 var io;
 var gameSocket;
+var players = [];
 
 /**
  * This function is called by index.js to initialize a new game instance.
@@ -21,6 +22,11 @@ exports.initGame = function(sio, socket){
     gameSocket.on('playerJoinGame', playerJoinGame);
     gameSocket.on('playerAnswer', playerAnswer);
     gameSocket.on('playerRestart', playerRestart);
+    gameSocket.on('getAllPlayers', getAllPlayers);
+    gameSocket.on('putPlayer', putPlayer);
+    gameSocket.on('disconnect', removePlayer);
+    gameSocket.on('leaveRoom', playerLeftRoom);
+    
 }
 
 /* *******************************
@@ -38,7 +44,8 @@ function hostCreateNewGame() {
 
     // Return the Room ID (gameId) and the socket ID (mySocketId) to the browser client
     this.emit('newGameCreated', {gameId: thisGameId, mySocketId: this.id});
-    console.log(thisGameId.toString());
+    //console.log(this.id.toString());
+    //console.log(thisGameId.toString());
     // Join the Room and wait for the players
     this.join(thisGameId.toString());
 };
@@ -89,7 +96,7 @@ function hostNextRound(data) {
  * A player clicked the 'START GAME' button.
  * Attempt to connect them to the room that matches
  * the gameId entered by the player.
- * @param data Contains data entered via player's input - playerName and gameId.
+ * @param data Contains data entered via player's input - playerName and gameId. And also the socketId
  */
 function playerJoinGame(data) {
     //console.log('Player ' + data.playerName + 'attempting to join game: ' + data.gameId );
@@ -98,26 +105,55 @@ function playerJoinGame(data) {
     var sock = this;
 
     // Look up the room ID in the Socket.IO manager object.
-    var room = gameSocket.manager.rooms["/" + data.gameId];
-
-    // If the room exists...
+    var room = io.sockets.adapter.rooms[data.gameId];
+    //If the room exists...
     if( room != undefined ){
         // attach the socket id to the data object.
-        data.mySocketId = sock.id;
 
         // Join the room
-        sock.join(data.gameId);
-
         //console.log('Player ' + data.playerName + ' joining game: ' + data.gameId );
-
+        this.join(data.gameId);
+        data.socketId = this.id;
         // Emit an event notifying the clients that the player has joined the room.
-        io.sockets.in(data.gameId).emit('playerJoinedRoom', data);
+        //console.log(data);
+        io.in(data.gameId).emit('playerJoinedRoom', data);
 
     } else {
         // Otherwise, send an error message back to the player.
-        this.emit('error',{message: "This room does not exist."} );
+        io.emit('error',{message: "This room does not exist."} );
     }
 }
+
+/**
+    Player left room
+    parameter includes - String Game Id
+**/
+function playerLeftRoom(gameId) {
+    //CONTINUE DOING THIS
+    this.leave(gameId);
+}
+
+/**
+    Gets all the player in the current room.
+    Data consists of -gameId, playerName and also the avatarName of sender.
+**/
+function getAllPlayers(data) {
+    var room = io.sockets.adapter.rooms[data.gameId];
+    
+    var sock;
+    var playersInRoom = [];
+
+    for(var i = 0; i < players.length; i++) {
+        if(room.sockets[players[i].socketId]==true) {
+            playersInRoom.push(players[i]);
+        }
+    }
+    this.emit('playersInRoom', playersInRoom);
+    this.broadcast.to(data.gameId).emit('newPlayerEntered', data);
+    //console.log(playersInRoom);
+    
+}
+
 
 /**
  * A player has tapped a word in the word list.
@@ -141,6 +177,22 @@ function playerRestart(data) {
     // Emit the player's data back to the clients in the game room.
     data.playerId = this.id;
     io.sockets.in(data.gameId).emit('playerJoinedRoom',data);
+}
+
+function putPlayer(data) {
+    players.push(data);
+    //console.log("putting data");
+    //console.log(data);
+
+}
+
+function removePlayer() {
+    for(var i = 0; i < players.length; i++) {
+        if (players[i].socketId==this.id) {
+            players.splice(i,1);
+        }
+    }
+    
 }
 
 /* *************************
