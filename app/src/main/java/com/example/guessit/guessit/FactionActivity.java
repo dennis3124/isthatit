@@ -82,6 +82,13 @@ public class FactionActivity extends AppCompatActivity {
         Intent intent = new Intent(this,ServerActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        Constants.socket.emit("leaveRoom", Constants.gameId);
+        return;
+    }
+
 //    public class MyCountDownTimer extends CountDownTimer{
 //        public MyCountDownTimer(long startTime, long interval){
 //            super(startTime, interval);

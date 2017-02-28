@@ -22,6 +22,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.nkzawa.emitter.Emitter;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -48,30 +51,14 @@ public class HintActivity extends AppCompatActivity {
         JSONObject obj = new JSONObject();
         try {
             obj.put("gameId", Constants.gameId);
+            obj.put("avatarName", Constants.avatarName);
+            obj.put("playerName", Constants.playerName);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         Constants.socket.emit("getAllPlayers", obj);
-        for (; count < obj.length(); count++) {
-            imageArray[count] = (ImageView) findViewById(Imgid[count]);
-        }
-
-        //GameDBHandler db = new GameDBHandler(this);
-
-        //insert a game (Test)
-//        Log.d("Insert: ", "Inserting ..");
-//        db.createGame(new Games(1));
-//        db.createGame(new Games(2));
-//        db.createGame(new Games(3));
-
-        //Read all games
-//        Log.d("Reading: ", "Reading all Games");
-//        List<Games> games = db.getAllGames();
-
-//        for(Games game : games) {
-//            String log = "Id: " + game.getId() + " Number of Player: " + game.getNumPlayers();
-//            Log.d("Games: : ", log);
-//        }
+        Constants.socket.on("playersInRoom", handleAllPlayers);
+        Constants.socket.on("newPlayerEntered", newPlayerEntered);
 
         //Pop up notification if all players are ready
         gameId = (TextView) findViewById(R.id.textView16);
@@ -176,4 +163,56 @@ public class HintActivity extends AppCompatActivity {
 //        });
 
     }
+
+    public Emitter.Listener handleAllPlayers = new Emitter.Listener() {
+        @Override
+        public void call(Object... args) {
+            JSONArray obj = (JSONArray) args[0];
+            String avatar;
+
+            try {
+                for(int i =0 ; i < obj.length();i++){
+                    JSONObject singleObj = (JSONObject) obj.getJSONObject(i);
+                    avatar = singleObj.getString("avatarName");
+                    createAvatar(avatar);
+                }
+
+            } catch (JSONException e) {
+                return;
+            }
+        }
+    };
+
+    public Emitter.Listener newPlayerEntered = new Emitter.Listener() {
+        @Override
+        public void call(Object... args) {
+            JSONObject obj = (JSONObject) args[0];
+            try {
+                String avatarName = obj.getString("avatarName");
+                Log.d("Avatar2 name is: ", avatarName);
+                createAvatar(avatarName);
+            } catch (JSONException e) {
+                return;
+            }
+        }
+    };
+
+    public void createAvatar(String avatarName) {
+        Log.d("Avatar name is: ", avatarName);
+        //Get the iconid from avatar name to link it to drawable folder
+        final int iconId =  getResources().getIdentifier("drawable/" + avatarName, null,context.getPackageName());
+        Log.d("IconId is: ", Integer.toString(iconId));
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Log.d("Count is: ", Integer.toString(count));
+                imageArray[count] = (ImageView) findViewById(Imgid[count]);
+                imageArray[count].setImageResource(iconId);
+                count++;
+            }
+        });
+    }
+
+
+
 }

@@ -25,6 +25,7 @@ exports.initGame = function(sio, socket){
     gameSocket.on('getAllPlayers', getAllPlayers);
     gameSocket.on('putPlayer', putPlayer);
     gameSocket.on('disconnect', removePlayer);
+    gameSocket.on('leaveRoom', playerLeftRoom);
     
 }
 
@@ -123,10 +124,22 @@ function playerJoinGame(data) {
     }
 }
 
+/**
+    Player left room
+    parameter includes - String Game Id
+**/
+function playerLeftRoom(gameId) {
+    //CONTINUE DOING THIS
+    this.leave(gameId);
+}
 
+/**
+    Gets all the player in the current room.
+    Data consists of -gameId, playerName and also the avatarName of sender.
+**/
 function getAllPlayers(data) {
     var room = io.sockets.adapter.rooms[data.gameId];
-    //console.log(room.sockets);
+    
     var sock;
     var playersInRoom = [];
 
@@ -135,9 +148,12 @@ function getAllPlayers(data) {
             playersInRoom.push(players[i]);
         }
     }
+    this.emit('playersInRoom', playersInRoom);
+    this.broadcast.to(data.gameId).emit('newPlayerEntered', data);
     //console.log(playersInRoom);
     
 }
+
 
 /**
  * A player has tapped a word in the word list.
