@@ -82,7 +82,8 @@
         android:id="@+id/progressBar"
         android:layout_below="@+id/textView11"
         android:layout_toRightOf="@+id/imageView"
-        android:layout_marginTop="18dp" />
+        android:layout_marginTop="18dp"
+        android:visibility="visible"/>
 
     <ImageView
         android:layout_width="100dp"
@@ -100,5 +101,16 @@
         android:layout_alignBottom="@+id/progressBar"
         android:layout_alignRight="@+id/textView11"
         android:layout_alignEnd="@+id/textView11" />
+
+    <Button
+        android:text="test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/takeimg"
+        android:layout_alignLeft="@+id/takeimg"
+        android:layout_alignStart="@+id/takeimg"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
+        android:id="@+id/testResult" />
 
 </RelativeLayout>

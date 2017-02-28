@@ -27,6 +27,7 @@ import java.util.concurrent.TimeUnit;
 public class GamePage extends AppCompatActivity {
     Button takePic;
     Button viewPic;
+    Button testResult;
     private Uri file;
     private ImageView imageView;
     Button viewScoreTableButton;
@@ -35,7 +36,7 @@ public class GamePage extends AppCompatActivity {
     CountDownTimer countDownTimer;
     public TextView timerView;
     private static final String FORMAT = "%02d:%02d";
-    private long startTime = 130*1000;
+    private long startTime = 30*1000;
     private long interval = 1000;
 
 
@@ -45,10 +46,13 @@ public class GamePage extends AppCompatActivity {
         setContentView(R.layout.activity_game_page);
         takePic = (Button)findViewById(R.id.takeimg);
         viewPic = (Button)findViewById(R.id.confirmimg);
+        testResult = (Button)findViewById(R.id.testResult);
         imageView = (ImageView)findViewById(R.id.imageview);
         viewHintButton = (Button)findViewById(R.id.viewHintButton);
         viewScoreTableButton = (Button)findViewById(R.id.viewScoreButton);
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
+        progressBar.setMax((int)startTime);
 
         viewScoreTableButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -62,6 +66,14 @@ public class GamePage extends AppCompatActivity {
                 startActivity(new Intent(GamePage.this, HintPage.class));
             }
         });
+
+        testResult.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(GamePage.this, ResultPage.class));
+            }
+        });
+
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             takePic.setEnabled(false);
             ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE }, 0);
@@ -78,8 +90,8 @@ public class GamePage extends AppCompatActivity {
         countDownTimer = new CountDownTimer(startTime, interval) { // Parameters has to be changed to what the room initiator set.
             @Override
             public void onTick(long millisUntilFinished) {
-                int progress = (int)(millisUntilFinished/1000);
-                progressBar.setProgress(progressBar.getMax()-progress);
+                long progress = millisUntilFinished/1000;
+                progressBar.setProgress((int)(progressBar.getMax()-progress));
 
                 // Need code for written time
                 timerView.setText(""+String.format(FORMAT,
