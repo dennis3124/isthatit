@@ -34,6 +34,7 @@ public class HintActivity extends AppCompatActivity {
     private AlertDialog.Builder alert_toHintGiver;
     private AlertDialog.Builder alert_setHint;
     private AlertDialog.Builder alert_hint;
+    private AlertDialog.Builder set_time;
     private Button button_toHintGiver;
     private Button button_setHint;
     private Button button_hint;
@@ -69,6 +70,7 @@ public class HintActivity extends AppCompatActivity {
         button_toHintGiver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // create new Alert Dialog Builder
                 alert_toHintGiver = new AlertDialog.Builder(context);
                 alert_toHintGiver.setMessage("You are selected as the hint giver for this round.");
                 alert_toHintGiver.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -90,15 +92,40 @@ public class HintActivity extends AppCompatActivity {
         button_setHint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Create new alert dialog builder called alert_setHint
                 alert_setHint = new AlertDialog.Builder(context);
                 alert_setHint.setMessage("Please enter a hint: ");
-
+                // create edittext box
                 final EditText input = new EditText(context);
+                // Choices for time selection
+                /*String[] timechoices = {"1 Min", "2 Min", "3 Min"};
+                alert_setHint.setSingleChoiceItems(timechoices, 3, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        switch(i) {
+                            case 1:
+                                Toast.makeText(getApplicationContext(), "1 Min", Toast.LENGTH_SHORT).show();
+                                break;
+                            case 2:
+                                Toast.makeText(getApplicationContext(), "2 Min", Toast.LENGTH_SHORT).show();
+                                break;
+                            case 3:
+                                Toast.makeText(getApplicationContext(), "3 Min", Toast.LENGTH_SHORT).show();
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                });
+                */
+
+                //alert_setHint.show();
                 final int maxLength = 20;
                 final int minLength = 1;
 
                 input.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxLength + 1)});
                 input.setInputType(InputType.TYPE_CLASS_TEXT);
+
                 alert_setHint.setView(input);
 
                 input.addTextChangedListener(new TextWatcher() {
@@ -117,6 +144,7 @@ public class HintActivity extends AppCompatActivity {
                     }
                 });
 
+                //alert_setHint.setView(input)
                 alert_setHint.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -130,6 +158,7 @@ public class HintActivity extends AppCompatActivity {
                         dialog.cancel();
                     }
                 });
+                //alert_setHint.create();
                 alert_setHint.show();
             }
 
