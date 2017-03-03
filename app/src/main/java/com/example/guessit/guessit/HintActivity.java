@@ -39,7 +39,7 @@ public class HintActivity extends AppCompatActivity {
     private Button button_setHint;
     private Button button_hint;
     private TextView gameId;
-    private String hint = "";
+    static String hint = "";
     final Context context = this;
     public ImageView imageArray[] = new ImageView[8];
     public int count=0;

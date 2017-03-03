@@ -3,6 +3,7 @@
 
     <item
         is-multidex="true"
+<<<<<<< HEAD
         jar="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -193,10 +194,203 @@
     <item
         is-multidex="true"
         jar="C:\Users\zhan1803\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp-ws\2.3.0\7896d229b6aa7884552ab9c23de54c7eb0de8203\okhttp-ws-2.3.0.jar"
+=======
+        jar="C:\Users\Johns_000\.gradle\caches\modules-2\files-2.1\com.github.nkzawa\engine.io-client\0.5.0\72f54ba32a0d735630ebc33a5c39e14a5dd45492\engine.io-client-0.5.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="72f54ba32a0d735630ebc33a5c39e14a5dd45492">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\engine.io-client-0.5.0_7842d3cd4efc516940b006b62a0f4db018de848e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support.test\rules\0.5\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7e11799d8a26bfa5d48acafe012ee5545b9bf468">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support.test-rules-0.5_c353cf621577f6b37b44c47696e2bdd5cbca6aa0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.1_69cb1672ab734d9903960479341d4639e6953198\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d3b5d42ca54ab9c9e9241811366590ad7fc2541e">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_58c1782770b68942b0a59f0491c24953778fe512\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.1_0169430562c13980bc5ec9b70181aa7887b44f7c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support.test\exposed-instrumentation-api-publish\0.5\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="905f3e63973d47fedf2d945fa31d8c0f0c98816e">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support.test-exposed-instrumentation-api-publish-0.5_dcff413c244055516d770213d172d29ceeaa0182\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\.gradle\caches\modules-2\files-2.1\com.github.nkzawa\socket.io-client\0.5.0\7d40c590385ba95b34920eb89c986757a79968af\socket.io-client-0.5.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7d40c590385ba95b34920eb89c986757a79968af">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\socket.io-client-0.5.0_f8e8f39bd0618685b58c87530876b852837e7c76\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.1_d346e6e6ec4d0ad938b0726dedf64c10799f97b2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\2.0.1\516c03b21d50a644d538de0f0369c620989cd8f0\jsr305-2.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="516c03b21d50a644d538de0f0369c620989cd8f0">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\jsr305-2.0.1_2b70bf6b01b93d8880cc280a60c92b15288b335a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-integration\1.3\5de0c73fef18917cd85d0ab70bb23818685e4dfd\hamcrest-integration-1.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5de0c73fef18917cd85d0ab70bb23818685e4dfd">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\hamcrest-integration-1.3_c603d8c24d04bb68dfd84874ba6baf1eda271eaf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.1_43743fa2343c2cde5f0843a58d31ccd6a882181b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\javax.inject-1_cde89065f24128c0c66c30d5ee5a0e99bafcfa6e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-core\1.3\42a25dc3219429f0e5d060061f71acb49bf010a0\hamcrest-core-1.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="42a25dc3219429f0e5d060061f71acb49bf010a0">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\hamcrest-core-1.3_8a5a78f5b882d19c6ee51b26d942c26794475cf7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.1.1_cfd68d0801ab00f9e0462add6e6040c3ade61572\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support.test.espresso\espresso-core\2.2.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d115b0e9e1501135fe91254ba884fcbd83d374c0">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support.test.espresso-espresso-core-2.2.2_962d18ff71f1e667e8e2af2c8680f3aa419482ee\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.1_9ccc73db41460666539d0cab8134d3b0f51e4589\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.1_1363fa719e2df820608678123619e6075c362317\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp\2.3.0\2e7bc7033dc2c8423e661224171b3133fb155b28\okhttp-2.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2e7bc7033dc2c8423e661224171b3133fb155b28">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-2.3.0_ee09cd0909ae45ef66bbcc176e40f67e3b52d9d5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support.test\runner\0.5\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="796f9229948e907471c5595fbe94655ccf03ff73">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support.test-runner-0.5_f0085434e1138c14e0ae1bb1c42ff45e2d28fff1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e693922bec0e44580c8858e54f8138b765adc05d">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_7b4b5448e0c1bff6f0c3e5ceb5d8a1800fa84d8b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\.gradle\caches\modules-2\files-2.1\javax.annotation\javax.annotation-api\1.2\479c1e06db31c432330183f5cae684163f186146\javax.annotation-api-1.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="479c1e06db31c432330183f5cae684163f186146">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\javax.annotation-api-1.2_66c7f6ff2ea5df85982f5bc5c49d77979e11da3d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp-ws\2.3.0\7896d229b6aa7884552ab9c23de54c7eb0de8203\okhttp-ws-2.3.0.jar"
+>>>>>>> 7f3c027eb2d3f3fb91ba1aeaa3f4e390eeceee67
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="7896d229b6aa7884552ab9c23de54c7eb0de8203">
+<<<<<<< HEAD
         <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-ws-2.3.0_073df4b4ff1e9f6ff1a0bdcbbd48c97297377c25\classes.dex" />
     </item>
     <item
@@ -270,6 +464,81 @@
         revision="25.0.2"
         sha1="516c03b21d50a644d538de0f0369c620989cd8f0">
         <dex dex="C:\Users\zhan1803\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\jsr305-2.0.1_39b3c1ef6178dc409d7f112842ec0e627f066d3c\classes.dex" />
+=======
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-ws-2.3.0_8565e775cf75b7f3bfe22dd4ea2b1bcc38bcae2d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.3.0\1b355f73402020c5a0dcca58affc3ec3dfeabac1\okio-1.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1b355f73402020c5a0dcca58affc3ec3dfeabac1">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.3.0_f883efa1f6cc71af126e4d04d59dc8cd12fc51ba\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\.gradle\caches\modules-2\files-2.1\junit\junit\4.12\2973d150c0dc1fefe998f834810d68f278ea58ec\junit-4.12.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2973d150c0dc1fefe998f834810d68f278ea58ec">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\junit-4.12_37692527834435c7b2f5004be873ca2f2475efc2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support.test.espresso\espresso-idling-resource\2.2.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a890ee8445927649d9ed50f625a315d8758688be">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support.test.espresso-espresso-idling-resource-2.2.2_405a33c8f99620a38a9b9f869bb2093bda84ec74\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.1\support-annotations-25.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.1_ae21d431b77f36a385dd64a042b2f15fed1fd3c3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\.gradle\caches\modules-2\files-2.1\com.squareup\javawriter\2.1.1\67ff45d9ae02e583d0f9b3432a5ebbe05c30c966\javawriter-2.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="67ff45d9ae02e583d0f9b3432a5ebbe05c30c966">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\javawriter-2.1.1_8ba6188c1c6e7c78bcfe1ec26ab4376a2fe06831\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-library\1.3\4785a3c21320980282f9f33d0d1264a69040538f\hamcrest-library-1.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4785a3c21320980282f9f33d0d1264a69040538f">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\hamcrest-library-1.3_772dd57b627820f0cdf236b60f2b239df4ca4465\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.1_95160cb06894ed9010c1e70c7f80ac4d7ab72e36\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Johns_000\Documents\GitHub\isthatit\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.1_b0c60e28bc70f9e08fdf16f9579ade504f575a26\classes.dex" />
+>>>>>>> 7f3c027eb2d3f3fb91ba1aeaa3f4e390eeceee67
     </item>
 
 </items>
