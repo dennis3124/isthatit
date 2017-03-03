@@ -32,7 +32,6 @@ package="com.example.guessit.guessit">
 
     <activity android:name=".JoinGameUsername" />
     <activity android:name=".StartGameUsername" />
-    <activity android:name=".Waiting" />
     <activity android:name=".ChooseFaction" />
     <activity android:name=".GamePage" />
     <activity android:name=".HintActivity" />

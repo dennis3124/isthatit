@@ -16,9 +16,13 @@ import java.util.List;
 
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +44,7 @@ public class HintActivity extends AppCompatActivity {
     private Button button_hint;
     private TextView gameId;
     static String hint = "";
+    static int timeRound = 0;
     final Context context = this;
     public ImageView imageArray[] = new ImageView[8];
     public int count=0;
@@ -94,39 +99,30 @@ public class HintActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Create new alert dialog builder called alert_setHint
                 alert_setHint = new AlertDialog.Builder(context);
-                alert_setHint.setMessage("Please enter a hint: ");
+
+                // Add two text boxes
+                LinearLayout layout = new LinearLayout(context);
+                layout.setOrientation(LinearLayout.VERTICAL);
                 // create edittext box
                 final EditText input = new EditText(context);
-                // Choices for time selection
-                /*String[] timechoices = {"1 Min", "2 Min", "3 Min"};
-                alert_setHint.setSingleChoiceItems(timechoices, 3, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        switch(i) {
-                            case 1:
-                                Toast.makeText(getApplicationContext(), "1 Min", Toast.LENGTH_SHORT).show();
-                                break;
-                            case 2:
-                                Toast.makeText(getApplicationContext(), "2 Min", Toast.LENGTH_SHORT).show();
-                                break;
-                            case 3:
-                                Toast.makeText(getApplicationContext(), "3 Min", Toast.LENGTH_SHORT).show();
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-                });
-                */
+                input.setHint("Please enter a hint and select time for the next round: ");
+                layout.addView(input);
 
-                //alert_setHint.show();
+                // Time choices selection
+                final Spinner time = new Spinner(context);
+
+                String[] timechoices = {"1 Min", "2 Min", "3 Min"};
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, timechoices);
+                time.setAdapter(adapter);
+                layout.addView(time);
+
                 final int maxLength = 20;
                 final int minLength = 1;
 
                 input.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxLength + 1)});
                 input.setInputType(InputType.TYPE_CLASS_TEXT);
 
-                alert_setHint.setView(input);
+                alert_setHint.setView(layout);
 
                 input.addTextChangedListener(new TextWatcher() {
                     @Override
@@ -141,15 +137,24 @@ public class HintActivity extends AppCompatActivity {
                         if (s.length() < minLength || s.length() > maxLength)
                             new AlertDialog.Builder(context).setTitle("The number of characters should be between 1 and 20")
                                     .setPositiveButton(android.R.string.ok, null).show();
+
                     }
                 });
 
-                //alert_setHint.setView(input)
                 alert_setHint.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         hint = input.getText().toString();
-                        Toast.makeText(context, "Hint set successfully!", Toast.LENGTH_SHORT).show();
+                        // Get time selected
+                        String timeSelection = time.getSelectedItem().toString();
+                        if (timeSelection == "1 Min") {
+                            timeRound = 1;
+                        } else if (timeSelection == "2 Min") {
+                            timeRound = 2;
+                        } else if (timeSelection == "3 Min") {
+                            timeRound = 3;
+                        }
+                        Toast.makeText(context, "Hint and time for that round set successfully!", Toast.LENGTH_SHORT).show();
                     }
                 });
                 alert_setHint.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -163,34 +168,6 @@ public class HintActivity extends AppCompatActivity {
             }
 
         });
-
-
-
-
-
-
-
-
-        // Check hint
-
-//        button_hint = (Button) findViewById(R.id.button_hint);
-//        button_hint.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //when this button is clicked, show the alert
-//                alert_hint = new AlertDialog.Builder(context);
-//                alert_hint.setTitle("Hint");
-//                alert_hint.setMessage(hint);
-//                alert_hint.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int id) {
-//                        //Toast.makeText(MainActivity.this, "You are the hint giver!", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//                alert_hint.show();
-//            }
-//        });
-
     }
 
     public Emitter.Listener handleAllPlayers = new Emitter.Listener() {

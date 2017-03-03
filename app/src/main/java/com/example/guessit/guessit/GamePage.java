@@ -2,6 +2,7 @@ package com.example.guessit.guessit;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -11,6 +12,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.content.pm.PackageManager;
 import android.support.v7.app.AppCompatActivity;
@@ -20,10 +22,18 @@ import android.widget.ProgressBar;
 import android.os.CountDownTimer;
 import android.widget.TextView;
 
+import com.github.nkzawa.emitter.Emitter;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+
+import static com.example.guessit.guessit.HintActivity.timeRound;
 
 
 public class GamePage extends AppCompatActivity {
@@ -37,13 +47,28 @@ public class GamePage extends AppCompatActivity {
     CountDownTimer countDownTimer;
     public TextView timerView;
     private static final String FORMAT = "%02d:%02d";
-    private long startTime = 130*1000;
+    private long startTime = timeRound * 1000 * 60;
     private long interval = 1000;
     private AlertDialog.Builder alert_hint;
-
+    TextView showName;
+    final Context context = this;
+    private Integer[] Imgid = {R.id.imageView12,R.id.imageView13,R.id.imageView14,R.id.imageView15,R.id.imageView16,R.id.imageView17,R.id.imageView18,R.id.imageView19 };
+    public int count=0;
+    private ImageView avatar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        JSONObject obj = new JSONObject();
+        try {
+            obj.put("gameId", Constants.gameId);
+            obj.put("avatarName", Constants.avatarName);
+            obj.put("playerName", Constants.playerName);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Constants.socket.emit("getAllPlayers", obj);
+        Constants.socket.on("playersInRoom", handleAllPlayers);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_page);
         takePic = (Button)findViewById(R.id.takeimg);
@@ -52,6 +77,8 @@ public class GamePage extends AppCompatActivity {
         viewHintButton = (Button)findViewById(R.id.viewHintButton);
         viewScoreTableButton = (Button)findViewById(R.id.viewScoreButton);
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
+        showName = (TextView)findViewById(R.id.showuser);
+        avatar = (ImageView)findViewById(R.id.avatarImg);
 
         viewScoreTableButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -91,8 +118,8 @@ public class GamePage extends AppCompatActivity {
         //Countdown timer  + Progress Bar
         countDownTimer = new CountDownTimer(startTime, interval) { // Parameters has to be changed to what the room initiator set.
             @Override
-            public void onTick(long millisUntilFinished) {
-                int progress = (int)(millisUntilFinished/1000);
+            public void onTick(long millisUntilFinished) { // milliusuntilfinished is the amt of time until finished
+                int progress = (int)(millisUntilFinished/1000); // Need to get this value right
                 progressBar.setProgress(progressBar.getMax()-progress);
 
                 // Need code for written time
@@ -106,7 +133,9 @@ public class GamePage extends AppCompatActivity {
             @Override
             public void onFinish() {
                 Log.d("Time", "Up!");
-                timerView.setText("Done");
+                timerView.setText("You are out of time!");
+                View rootview = getWindow().getDecorView().getRootView();
+                confirmImage(rootview);
                 // When done, it should go to image page.
             }
         };
@@ -151,4 +180,64 @@ public class GamePage extends AppCompatActivity {
         return new File(mediaStorageDir.getPath() + File.separator +
                 "IMG_"+ uniqueStamp + ".jpg");
     }
+
+
+    // Get username for player -- Why this doesn't work?
+    /*public Emitter.Listener newPlayerEntered = new Emitter.Listener() {
+        @Override
+        public void call(Object... args) {
+            JSONObject obj = (JSONObject) args[0];
+            try {
+                String playerEntered = obj.getString("playerName");
+                Log.d("Player name is: ", playerEntered);
+                changeName(playerEntered);
+            } catch (JSONException e) {
+                return;
+            }
+        }
+    };
+
+    // Method to change name
+    public void changeName(String name) {
+        Log.d("Why is it not out", name);
+        showName.setText(name);
+    }*/
+
+    // I need the avatar as well
+    public void createProfile(String avatarName, final String name) {
+        Log.d("Avatar name is: ", avatarName);
+        //Get the iconid from avatar name to link it to drawable folder
+        final int iconId =  getResources().getIdentifier("drawable/" + avatarName, null,context.getPackageName());
+        Log.d("IconId is: ", Integer.toString(iconId));
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Log.d("Count is: ", Integer.toString(count));
+                avatar.setImageResource(iconId);
+                showName.setText(name);
+                count++;
+            }
+        });
+    }
+
+    public Emitter.Listener handleAllPlayers = new Emitter.Listener() {
+        @Override
+        public void call(Object... args) {
+            JSONArray obj = (JSONArray) args[0];
+            String avatar;
+            String name;
+
+            try {
+                for(int i =0 ; i < obj.length();i++){
+                    JSONObject singleObj = (JSONObject) obj.getJSONObject(i);
+                    avatar = singleObj.getString("avatarName");
+                    name = singleObj.getString("playerName");
+                    createProfile(avatar, name);
+                }
+
+            } catch (JSONException e) {
+                return;
+            }
+        }
+    };
 }
