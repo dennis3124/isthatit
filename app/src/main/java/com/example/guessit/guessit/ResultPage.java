@@ -14,6 +14,7 @@ public class ResultPage extends AppCompatActivity {
 
     Button finishResultButton;
     Button scoreResultButton;
+    Button exitGameButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,7 @@ public class ResultPage extends AppCompatActivity {
         setContentView(R.layout.activity_result_page);
         finishResultButton = (Button) findViewById(R.id.finishResultButton);
         scoreResultButton = (Button) findViewById(R.id.scoreResultButton);
+        exitGameButton = (Button) findViewById(R.id.exitGameButton2);
 
         finishResultButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -33,6 +35,13 @@ public class ResultPage extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 startActivity(new Intent(ResultPage.this, ScoreTable.class));
+            }
+        });
+
+        exitGameButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(ResultPage.this, ExitGame.class));
             }
         });
     }

@@ -66,5 +66,16 @@
         android:layout_alignRight="@+id/resultImg1"
         android:layout_alignEnd="@+id/resultImg1" />
 
+    <Button
+        android:text="exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/scoreResultButton"
+        android:layout_alignLeft="@+id/resultImg1"
+        android:layout_alignStart="@+id/resultImg1"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:id="@+id/exitGameButton2" />
+
 
 </RelativeLayout>

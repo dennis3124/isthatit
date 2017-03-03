@@ -86,10 +86,8 @@ public class HintActivity extends AppCompatActivity {
                 });
                 startActivity(new Intent(view.getContext(), GamePage.class));
                 alert_toHintGiver.show();
-
             }
         });
-
 
         // Set hint when the hint giver is notified
 
@@ -105,6 +103,7 @@ public class HintActivity extends AppCompatActivity {
                 layout.setOrientation(LinearLayout.VERTICAL);
                 // create edittext box
                 final EditText input = new EditText(context);
+
                 input.setHint("Please enter a hint and select time for the next round: ");
                 layout.addView(input);
 
@@ -218,7 +217,4 @@ public class HintActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
 }

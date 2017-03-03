@@ -91,6 +91,7 @@
         android:layout_alignLeft="@+id/showuser"
         android:layout_alignStart="@+id/showuser" />
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -114,5 +115,25 @@
         android:layout_toStartOf="@+id/showuser"
         android:layout_marginRight="22dp"
         android:layout_marginEnd="22dp" />
+
+    <Button
+        android:text="Result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/testResult"
+        android:layout_below="@+id/takeimg"
+        android:layout_toLeftOf="@+id/viewHintButton"
+        android:layout_toStartOf="@+id/viewHintButton" />
+
+    <Button
+        android:text="exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/exitGameButton"
+        android:layout_below="@+id/takeimg"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/testResult"/>
+
 
 </RelativeLayout>
