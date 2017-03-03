@@ -39,6 +39,7 @@ package="com.example.guessit.guessit">
     <activity android:name=".ImagePage" />
     <activity android:name=".ResultPage" />
     <activity android:name=".WinnerPage"></activity>
+    <activity android:name=".ExitGame" />
 </application>
 
 </manifest>

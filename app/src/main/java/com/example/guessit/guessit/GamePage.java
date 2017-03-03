@@ -28,6 +28,7 @@ public class GamePage extends AppCompatActivity {
     Button takePic;
     Button viewPic;
     Button testResult;
+    Button exitGame;
     private Uri file;
     private ImageView imageView;
     Button viewScoreTableButton;
@@ -47,6 +48,7 @@ public class GamePage extends AppCompatActivity {
         takePic = (Button)findViewById(R.id.takeimg);
         viewPic = (Button)findViewById(R.id.confirmimg);
         testResult = (Button)findViewById(R.id.testResult);
+        exitGame = (Button)findViewById(R.id.exitGameButton);
         imageView = (ImageView)findViewById(R.id.imageview);
         viewHintButton = (Button)findViewById(R.id.viewHintButton);
         viewScoreTableButton = (Button)findViewById(R.id.viewScoreButton);
@@ -71,6 +73,13 @@ public class GamePage extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 startActivity(new Intent(GamePage.this, ResultPage.class));
+            }
+        });
+
+        exitGame.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(GamePage.this, ExitGame.class));
             }
         });
 

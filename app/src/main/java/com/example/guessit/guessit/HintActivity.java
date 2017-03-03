@@ -81,10 +81,8 @@ public class HintActivity extends AppCompatActivity {
                 });
                 startActivity(new Intent(view.getContext(), GamePage.class));
                 alert_toHintGiver.show();
-
             }
         });
-
 
         // Set hint when the hint giver is notified
 
@@ -97,27 +95,6 @@ public class HintActivity extends AppCompatActivity {
                 alert_setHint.setMessage("Please enter a hint: ");
                 // create edittext box
                 final EditText input = new EditText(context);
-                // Choices for time selection
-                /*String[] timechoices = {"1 Min", "2 Min", "3 Min"};
-                alert_setHint.setSingleChoiceItems(timechoices, 3, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        switch(i) {
-                            case 1:
-                                Toast.makeText(getApplicationContext(), "1 Min", Toast.LENGTH_SHORT).show();
-                                break;
-                            case 2:
-                                Toast.makeText(getApplicationContext(), "2 Min", Toast.LENGTH_SHORT).show();
-                                break;
-                            case 3:
-                                Toast.makeText(getApplicationContext(), "3 Min", Toast.LENGTH_SHORT).show();
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-                });
-                */
 
                 //alert_setHint.show();
                 final int maxLength = 20;
@@ -163,34 +140,6 @@ public class HintActivity extends AppCompatActivity {
             }
 
         });
-
-
-
-
-
-
-
-
-        // Check hint
-
-//        button_hint = (Button) findViewById(R.id.button_hint);
-//        button_hint.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //when this button is clicked, show the alert
-//                alert_hint = new AlertDialog.Builder(context);
-//                alert_hint.setTitle("Hint");
-//                alert_hint.setMessage(hint);
-//                alert_hint.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int id) {
-//                        //Toast.makeText(MainActivity.this, "You are the hint giver!", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//                alert_hint.show();
-//            }
-//        });
-
     }
 
     public Emitter.Listener handleAllPlayers = new Emitter.Listener() {
@@ -241,7 +190,4 @@ public class HintActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
 }
