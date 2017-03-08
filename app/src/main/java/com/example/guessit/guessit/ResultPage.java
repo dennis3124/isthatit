@@ -60,7 +60,6 @@ public class ResultPage extends AppCompatActivity {
         uploadPicButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                //startActivity(new Intent(ResultPage.this, UploadPic.class));
                 startActivityForResult(new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI), RESULT_LOAD_IMAGE);
             }
         });
