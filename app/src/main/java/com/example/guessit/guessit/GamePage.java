@@ -29,11 +29,8 @@ import java.util.concurrent.TimeUnit;
 public class GamePage extends AppCompatActivity {
     Button takePic;
     Button viewPic;
-<<<<<<< HEAD
     Button testResult;
     Button exitGame;
-=======
->>>>>>> 7f3c027eb2d3f3fb91ba1aeaa3f4e390eeceee67
     private Uri file;
     private ImageView imageView;
     Button viewScoreTableButton;
@@ -53,11 +50,8 @@ public class GamePage extends AppCompatActivity {
         setContentView(R.layout.activity_game_page);
         takePic = (Button)findViewById(R.id.takeimg);
         viewPic = (Button)findViewById(R.id.confirmimg);
-<<<<<<< HEAD
         testResult = (Button)findViewById(R.id.testResult);
         exitGame = (Button)findViewById(R.id.exitGameButton);
-=======
->>>>>>> 7f3c027eb2d3f3fb91ba1aeaa3f4e390eeceee67
         imageView = (ImageView)findViewById(R.id.imageview);
         viewHintButton = (Button)findViewById(R.id.viewHintButton);
         viewScoreTableButton = (Button)findViewById(R.id.viewScoreButton);
@@ -86,7 +80,6 @@ public class GamePage extends AppCompatActivity {
                 //startActivity(new Intent(GamePage.this, HintPage.class));
             }
         });
-<<<<<<< HEAD
 
         testResult.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -102,8 +95,6 @@ public class GamePage extends AppCompatActivity {
             }
         });
 
-=======
->>>>>>> 7f3c027eb2d3f3fb91ba1aeaa3f4e390eeceee67
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             takePic.setEnabled(false);
             ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE }, 0);
