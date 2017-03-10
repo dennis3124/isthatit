@@ -43,6 +43,20 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+// Just added
+app.use(express.bodyParser({limit: '50mb'}));
+
+app.post('/pic', function(req, res) {
+	console.log("Attempting to upload the photo");
+	console.log(req.body.GameID);
+	console.log("Trying to print");
+	console.log(req.body.ImageName);
+	//console.log(req.files.image.originalFilename);
+	//console.log(req.files.image.path);
+});
+
+// End just added
+
 // Import the Guessit game file.
 var guessit= require('./guessit');
 
@@ -68,7 +82,6 @@ io.on('connection',function(socket){
         console.log('one user disconnected '+socket.id);
     })
 })
-
 
 
 http.listen(8080 ,function(){

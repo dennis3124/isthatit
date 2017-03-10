@@ -1,7 +1,6 @@
 var io;
 var gameSocket;
 var players = [];
-
 /**
  * This function is called by index.js to initialize a new game instance.
  *

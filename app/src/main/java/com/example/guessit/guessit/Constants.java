@@ -10,10 +10,12 @@ import com.github.nkzawa.socketio.client.Socket;
 
 public final class Constants {
     public static final String url="https://guessit-cs408.herokuapp.com/";
-    public static final String testUrl="http://192.168.1.143:8080";
+    public static final String testUrl="http://10.186.11.237:8080";
     public static String gameId;
     public static String sockId;
     public static Socket socket;
     public static String playerName;
     public static String avatarName;
+
+    public static final String IMAGE_DIRECTORY_NAME = "Android IMG Upload";
 }
