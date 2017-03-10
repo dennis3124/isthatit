@@ -45,8 +45,6 @@ var io = require('socket.io')(http);
 
 // Import the Guessit game file.
 var guessit= require('./guessit');
-
-
 // Reduce the logging output of Socket.IO
 io.set('log level',1);
 

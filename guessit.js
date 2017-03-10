@@ -1,7 +1,7 @@
 var io;
 var gameSocket;
 var players = [];
-
+var games = [];
 /**
  * This function is called by index.js to initialize a new game instance.
  *
@@ -15,7 +15,9 @@ exports.initGame = function(sio, socket){
     // Host Events
     gameSocket.on('hostCreateNewGame', hostCreateNewGame);
     gameSocket.on('hostRoomFull', hostPrepareGame);
-    gameSocket.on('hostCountdownFinished', hostStartGame);
+    gameSocket.on('ready',ready);
+    gameSocket.on('startGame', startGame);
+    gameSocket.on('hostStartGame', hostStartGame);
     gameSocket.on('hostNextRound', hostNextRound);
 
     // Player Events
@@ -41,7 +43,8 @@ exports.initGame = function(sio, socket){
 function hostCreateNewGame() {
     // Create a unique Socket.IO Room
     var thisGameId = ( Math.random() * 100000 ) | 0;
-
+    var gameObj = {playerCount: 0, gameId: thisGameId, readyCount: 0, hintGiver: 0};
+    games.push(gameObj);
     // Return the Room ID (gameId) and the socket ID (mySocketId) to the browser client
     this.emit('newGameCreated', {gameId: thisGameId, mySocketId: this.id});
     //console.log(this.id.toString());
@@ -62,17 +65,35 @@ function hostPrepareGame(gameId) {
     };
     //console.log("All Players Present. Preparing game...");
     io.sockets.in(data.gameId).emit('beginNewGame', data);
-}
+};
 
 /*
  * The Countdown has finished, and the game begins!
  * @param gameId The game ID / room ID
  */
-function hostStartGame(gameId) {
-    console.log('Game Started.');
-    sendWord(0,gameId);
-};
+function ready(gameId) {
+    for(var i = 0; i < games.length ; i++) {
+            if(games[i].gameId == gameId) {
+                games[i].readyCount++;
+                //console.log(games[i]);
+                if(games[i].readyCount == games[i].playerCount && games[i].playerCount != 1) {
+                    sendHintGiver(gameId,i);
+                  //  io.sockets.in(gameId).emit('startGame');
+                    break;
+                }
+                break;
+            }
 
+    }
+}
+
+function startGame(gameId) {
+     io.sockets.in(gameId).emit('startGame');
+}
+
+function hostStartGame(gameId) {
+    setHintGiver(gameId);
+}
 /**
  * A player answered correctly. Time for the next word.
  * @param data Sent from the client. Contains the current round and gameId (room)
@@ -124,10 +145,10 @@ function playerJoinGame(data) {
     }
 }
 
-/**
-    Player left room
-    parameter includes - String Game Id
-**/
+// *
+//     Player left room
+//     parameter includes - String Game Id
+// *
 function playerLeftRoom(gameId) {
     //CONTINUE DOING THIS
     this.leave(gameId);
@@ -139,8 +160,6 @@ function playerLeftRoom(gameId) {
 **/
 function getAllPlayers(data) {
     var room = io.sockets.adapter.rooms[data.gameId];
-    
-    var sock;
     var playersInRoom = [];
 
     for(var i = 0; i < players.length; i++) {
@@ -181,6 +200,12 @@ function playerRestart(data) {
 
 function putPlayer(data) {
     players.push(data);
+    for(var i = 0 ; i < games.length; i++) {
+            if(games[i].gameId == data.gameId) {
+                        games[i].playerCount++;
+            }
+
+    }
     //console.log("putting data");
     //console.log(data);
 
@@ -201,14 +226,16 @@ function removePlayer() {
    *                       *
    ************************* */
 
-/**
- * Get a word for the host, and a list of words for the player.
- *
- * @param wordPoolIndex
- * @param gameId The room identifier
- */
-function sendWord(wordPoolIndex, gameId) {
-    var data = getWordData(wordPoolIndex);
-    io.sockets.in(data.gameId).emit('newWordData', data);
-}
+function sendHintGiver(gameId, index) {
+    var room = io.sockets.adapter.rooms[gameId];
+    var playersInRoom = [];
 
+    for(var i = 0; i < players.length; i++) {
+        if(room.sockets[players[i].socketId]==true) {
+            playersInRoom.push(players[i]);
+        }
+    }
+    var hintGiverSock = playersInRoom[games[index].hintGiver].socketId;
+    io.sockets.in(gameId).emit('hintGiver', hintGiverSock);
+    //console.log(hintGiverSock);
+}
