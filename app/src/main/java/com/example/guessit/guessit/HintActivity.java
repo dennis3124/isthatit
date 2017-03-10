@@ -16,9 +16,13 @@ import java.util.List;
 
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +41,8 @@ public class HintActivity extends AppCompatActivity {
     private AlertDialog.Builder alert_hint;
     private AlertDialog.Builder set_time;
     private TextView gameId;
+    static String hint = "";
+    static int timeRound = 0;
     final Context context = this;
     public ImageView imageArray[] = new ImageView[8];
     public int count=0;

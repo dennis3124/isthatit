@@ -2,8 +2,6 @@ package com.example.guessit.guessit;
 
 import android.content.ComponentName;
 import android.support.test.espresso.Espresso;
-import android.support.test.espresso.intent.Intents;
-import android.support.test.espresso.intent.rule.IntentsTestRule;
 import android.support.test.rule.ActivityTestRule;
 
 import org.junit.Rule;
@@ -14,9 +12,6 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.intent.Intents.intended;
-import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
-import static android.support.test.espresso.intent.matcher.IntentMatchers.toPackage;
 import static android.support.test.espresso.matcher.RootMatchers.withDecorView;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
@@ -32,7 +27,7 @@ import static org.hamcrest.CoreMatchers.startsWith;
 public class checkFactionTest {
     // Launch android activities
     @Rule
-    public IntentsTestRule<MainActivity> mainact = new IntentsTestRule<>(MainActivity.class);
+    public ActivityTestRule<MainActivity> mainact = new ActivityTestRule<>(MainActivity.class);
 
     @Test
     // Checks for basic case for user name

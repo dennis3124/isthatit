@@ -20,6 +20,6 @@ public class ScoreTable extends Activity{
         int tableWidth = scoreTableDisplayMetrics.widthPixels;
         int tableHeight = scoreTableDisplayMetrics.heightPixels;
 
-        getWindow().setLayout((int)(tableWidth*0.85), (int)(tableHeight*.75));
+        getWindow().setLayout((int)(tableWidth*0.9), (int)(tableHeight*.75));
     }
 }

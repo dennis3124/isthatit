@@ -1,6 +1,8 @@
 package com.example.guessit.guessit;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
@@ -27,6 +29,8 @@ import java.util.concurrent.TimeUnit;
 public class GamePage extends AppCompatActivity {
     Button takePic;
     Button viewPic;
+    Button testResult;
+    Button exitGame;
     private Uri file;
     private ImageView imageView;
     Button viewScoreTableButton;
@@ -37,6 +41,7 @@ public class GamePage extends AppCompatActivity {
     private static final String FORMAT = "%02d:%02d";
     private long startTime = 130*1000;
     private long interval = 1000;
+    private AlertDialog.Builder alert_hint;
 
 
     @Override
@@ -45,6 +50,8 @@ public class GamePage extends AppCompatActivity {
         setContentView(R.layout.activity_game_page);
         takePic = (Button)findViewById(R.id.takeimg);
         viewPic = (Button)findViewById(R.id.confirmimg);
+        testResult = (Button)findViewById(R.id.testResult);
+        exitGame = (Button)findViewById(R.id.exitGameButton);
         imageView = (ImageView)findViewById(R.id.imageview);
         viewHintButton = (Button)findViewById(R.id.viewHintButton);
         viewScoreTableButton = (Button)findViewById(R.id.viewScoreButton);
@@ -59,9 +66,35 @@ public class GamePage extends AppCompatActivity {
         viewHintButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                startActivity(new Intent(GamePage.this, HintPage.class));
+                //startActivity(new Intent(GamePage.this, HintPage.class));
+                alert_hint = new AlertDialog.Builder(GamePage.this);
+                alert_hint.setTitle("Hint");
+                alert_hint.setMessage(HintActivity.hint);
+                alert_hint.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        //Toast.makeText(MainActivity.this, "You are the hint giver!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                alert_hint.show();
+                //startActivity(new Intent(GamePage.this, HintPage.class));
             }
         });
+
+        testResult.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(GamePage.this, ResultPage.class));
+            }
+        });
+
+        exitGame.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(GamePage.this, ExitGame.class));
+            }
+        });
+
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             takePic.setEnabled(false);
             ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE }, 0);

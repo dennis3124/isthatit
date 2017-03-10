@@ -10,7 +10,7 @@ import com.github.nkzawa.socketio.client.Socket;
 
 public final class Constants {
     public static final String url="https://guessit-cs408.herokuapp.com/";
-    public static final String testUrl="http://192.168.0.104:8080";
+    public static final String testUrl="http://10.186.152.154:8080";
     public static String gameId;
     public static String sockId;
     public static Socket socket;
