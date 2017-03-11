@@ -14,8 +14,6 @@ public class StartGameUsername extends AppCompatActivity {
     EditText username;
     Button gotofaction;
     TextView gameId;
-    static int globalplayercount = 0; // increment to 1, 2
-    static int globalgameid = 100; // increment to 101, 102 etc. (prevent unique error)
     Players player;
     Games game;
     PlayerDBHandler pdb = new PlayerDBHandler(this);
@@ -29,8 +27,6 @@ public class StartGameUsername extends AppCompatActivity {
         gameId.setText(Constants.gameId);
         gotofaction = (Button)findViewById(R.id.gotofaction);
         gotofaction.setEnabled(false);
-        player = new Players(globalplayercount, 0, "", "", globalgameid, "");
-        game = new Games(globalgameid);
     }
 
     public void gotoFaction(View view) {
@@ -50,11 +46,9 @@ public class StartGameUsername extends AppCompatActivity {
             gotofaction.setEnabled(false);
         } else {
             Toast.makeText(getApplicationContext(), "Awesome username!", Toast.LENGTH_LONG).show();
-            player.setUserName(username.getText().toString());
             Constants.playerName = username.getText().toString();
            // pdb.addPlayer(player);
             // Added player, so increment count
-            globalplayercount++;
             gotofaction.setEnabled(true);
 
         }

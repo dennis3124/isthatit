@@ -27,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.nkzawa.emitter.Emitter;
+import com.github.nkzawa.engineio.client.Socket;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,9 +40,6 @@ public class HintActivity extends AppCompatActivity {
     private AlertDialog.Builder alert_setHint;
     private AlertDialog.Builder alert_hint;
     private AlertDialog.Builder set_time;
-    private Button button_toHintGiver;
-    private Button button_setHint;
-    private Button button_hint;
     private TextView gameId;
     static String hint = "";
     static int timeRound = 0;
@@ -49,6 +47,7 @@ public class HintActivity extends AppCompatActivity {
     public ImageView imageArray[] = new ImageView[8];
     public int count=0;
     private Integer[] Imgid = {R.id.imageView12,R.id.imageView13,R.id.imageView14,R.id.imageView15,R.id.imageView16,R.id.imageView17,R.id.imageView18,R.id.imageView19 };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,109 +64,154 @@ public class HintActivity extends AppCompatActivity {
         Constants.socket.emit("getAllPlayers", obj);
         Constants.socket.on("playersInRoom", handleAllPlayers);
         Constants.socket.on("newPlayerEntered", newPlayerEntered);
-
+        Constants.socket.on("startGame", startGame);
+        Constants.socket.on("hintGiver", notifyHintGiver);
         //Pop up notification if all players are ready
         gameId = (TextView) findViewById(R.id.textView16);
         String newGameIdString = gameId.getText().toString();
         newGameIdString += Constants.gameId;
         gameId.setText(newGameIdString);
-        button_toHintGiver = (Button) findViewById(R.id.button_toHintGiver);
-        button_toHintGiver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // create new Alert Dialog Builder
-                alert_toHintGiver = new AlertDialog.Builder(context);
-                alert_toHintGiver.setMessage("You are selected as the hint giver for this round.");
-                alert_toHintGiver.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        //Toast.makeText(MainActivity.this, "You are the hint giver!", Toast.LENGTH_SHORT).show();
+//        button_toHintGiver = (Button) findViewById(R.id.button_toHintGiver);
+//        button_toHintGiver.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // create new Alert Dialog Builder
+//                alert_toHintGiver = new AlertDialog.Builder(context);
+//                alert_toHintGiver.setMessage("You are selected as the hint giver for this round.");
+//                alert_toHintGiver.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int id) {
+//                        //Toast.makeText(MainActivity.this, "You are the hint giver!", Toast.LENGTH_SHORT).show();
+//
+//                    }
+//                });
+//                startActivity(new Intent(view.getContext(), GamePage.class));
+//                alert_toHintGiver.show();
+//
+//            }
+//        });
 
-                    }
-                });
-                startActivity(new Intent(view.getContext(), GamePage.class));
-                alert_toHintGiver.show();
-            }
-        });
 
         // Set hint when the hint giver is notified
 
-        button_setHint = (Button) findViewById(R.id.button_setHint);
-        button_setHint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Create new alert dialog builder called alert_setHint
-                alert_setHint = new AlertDialog.Builder(context);
+//        button_setHint = (Button) findViewById(R.id.button_setHint);
+//        button_setHint.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // Create new alert dialog builder called alert_setHint
+//                alert_setHint = new AlertDialog.Builder(context);
+//                alert_setHint.setMessage("Please enter a hint: ");
+//                // create edittext box
+//                final EditText input = new EditText(context);
+//                // Choices for time selection
+//                /*String[] timechoices = {"1 Min", "2 Min", "3 Min"};
+//                alert_setHint.setSingleChoiceItems(timechoices, 3, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//                        switch(i) {
+//                            case 1:
+//                                Toast.makeText(getApplicationContext(), "1 Min", Toast.LENGTH_SHORT).show();
+//                                break;
+//                            case 2:
+//                                Toast.makeText(getApplicationContext(), "2 Min", Toast.LENGTH_SHORT).show();
+//                                break;
+//                            case 3:
+//                                Toast.makeText(getApplicationContext(), "3 Min", Toast.LENGTH_SHORT).show();
+//                                break;
+//                            default:
+//                                break;
+//                        }
+//                    }
+//                });
+//                */
+//
+//                //alert_setHint.show();
+//                final int maxLength = 20;
+//                final int minLength = 1;
+//
+//                input.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxLength + 1)});
+//                input.setInputType(InputType.TYPE_CLASS_TEXT);
+//
+//                alert_setHint.setView(input);
+//
+//                input.addTextChangedListener(new TextWatcher() {
+//                    @Override
+//                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//                    }
+//                    @Override
+//                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+//
+//                    }
+//                    @Override
+//                    public void afterTextChanged(Editable s) {
+//                        if (s.length() < minLength || s.length() > maxLength)
+//                            new AlertDialog.Builder(context).setTitle("The number of characters should be between 1 and 20")
+//                                    .setPositiveButton(android.R.string.ok, null).show();
+//                    }
+//                });
+//
+//                //alert_setHint.setView(input)
+//                alert_setHint.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        hint = input.getText().toString();
+//                        Toast.makeText(context, "Hint set successfully!", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//                alert_setHint.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.cancel();
+//                    }
+//                });
+//                //alert_setHint.create();
+//                alert_setHint.show();
+//            }
+//
+//        });
+//
 
-                // Add two text boxes
-                LinearLayout layout = new LinearLayout(context);
-                layout.setOrientation(LinearLayout.VERTICAL);
-                // create edittext box
-                final EditText input = new EditText(context);
 
-                input.setHint("Please enter a hint and select time for the next round: ");
-                layout.addView(input);
 
-                // Time choices selection
-                final Spinner time = new Spinner(context);
 
-                String[] timechoices = {"1 Min", "2 Min", "3 Min"};
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, timechoices);
-                time.setAdapter(adapter);
-                layout.addView(time);
 
-                final int maxLength = 20;
-                final int minLength = 1;
 
-                input.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxLength + 1)});
-                input.setInputType(InputType.TYPE_CLASS_TEXT);
 
-                alert_setHint.setView(layout);
+        // Check hint
 
-                input.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                    }
-                    @Override
-                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+//        button_hint = (Button) findViewById(R.id.button_hint);
+//        button_hint.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //when this button is clicked, show the alert
+//                alert_hint = new AlertDialog.Builder(context);
+//                alert_hint.setTitle("Hint");
+//                alert_hint.setMessage(hint);
+//                alert_hint.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int id) {
+//                        //Toast.makeText(MainActivity.this, "You are the hint giver!", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//                alert_hint.show();
+//            }
+//        });
 
-                    }
-                    @Override
-                    public void afterTextChanged(Editable s) {
-                        if (s.length() < minLength || s.length() > maxLength)
-                            new AlertDialog.Builder(context).setTitle("The number of characters should be between 1 and 20")
-                                    .setPositiveButton(android.R.string.ok, null).show();
-
-                    }
-                });
-
-                alert_setHint.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        hint = input.getText().toString();
-                        // Get time selected
-                        String timeSelection = time.getSelectedItem().toString();
-                        if (timeSelection == "1 Min") {
-                            timeRound = 1;
-                        } else if (timeSelection == "2 Min") {
-                            timeRound = 2;
-                        } else if (timeSelection == "3 Min") {
-                            timeRound = 3;
-                        }
-                        Toast.makeText(context, "Hint and time for that round set successfully!", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                alert_setHint.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-                //alert_setHint.create();
-                alert_setHint.show();
-            }
-
-        });
     }
+
+    public Emitter.Listener notifyHintGiver = new Emitter.Listener() {
+        @Override
+        public void call(Object... args) {
+            String hintGiverSocket = (String)args[0];
+            makeHintToast(hintGiverSocket);
+        }
+    };
+
+    public Emitter.Listener startGame = new Emitter.Listener() {
+        @Override
+        public void call(Object... args) {
+          goToGamePage();
+        }
+    };
 
     public Emitter.Listener handleAllPlayers = new Emitter.Listener() {
         @Override
@@ -202,6 +246,62 @@ public class HintActivity extends AppCompatActivity {
         }
     };
 
+    public void makeHintToast(final String hintGiverSocket) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if(hintGiverSocket.equals(Constants.sockId)) {
+                    //Toast.makeText(getApplicationContext(), "You're selected as the hint giver", Toast.LENGTH_LONG).show();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setTitle("You are selected as the Hint Giver");
+                    final EditText input = new EditText(context);
+                    final int maxLength = 50;
+                    final int minLength = 1;
+                    input.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxLength + 1)});
+                    input.setInputType(InputType.TYPE_CLASS_TEXT);
+
+                    input.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                    }
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                    }
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                        if (s.length() < minLength || s.length() > maxLength)
+                            new AlertDialog.Builder(context).setTitle("The number of characters should be between 1 and 50")
+                                    .setPositiveButton(android.R.string.ok, null).show();
+                    }
+                    });
+
+                    builder.setView(input);
+                    builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Constants.roundHint = input.getText().toString();
+                        Constants.socket.emit("startGame", Constants.gameId);
+                        Toast.makeText(context, "Hint set successfully!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                //alert_setHint.create();
+                builder.show();
+                }
+            }
+        });
+
+    }
+
+    public void goToGamePage() {
+        startActivity(new Intent(this, GamePage.class));
+    }
     public void createAvatar(String avatarName) {
         Log.d("Avatar name is: ", avatarName);
         //Get the iconid from avatar name to link it to drawable folder
@@ -217,4 +317,13 @@ public class HintActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void ready(View view) {
+        Constants.socket.emit("ready", Constants.gameId);
+        Button ready = (Button)findViewById(R.id.button3);
+        ready.setEnabled(false);
+    }
+
+
+
 }

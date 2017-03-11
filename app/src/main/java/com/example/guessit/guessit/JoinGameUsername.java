@@ -44,7 +44,6 @@ public class JoinGameUsername extends AppCompatActivity {
         submit = (Button)findViewById(R.id.submitcode);
         secret = (EditText)findViewById(R.id.secretcode);
         submit.setEnabled(false);
-        player = new Players(StartGameUsername.globalplayercount, 0, "", "", StartGameUsername.globalgameid, "");
 
     }
     private Emitter.Listener playerJoinedRoom = new Emitter.Listener() {
@@ -99,21 +98,19 @@ public class JoinGameUsername extends AppCompatActivity {
     public void checkUserName (View view){
         // Check if shorter than 1
         if (name.getText().toString().length() < 1) {
-            Toast.makeText(getApplicationContext(), "Username too short", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Username too short", Toast.LENGTH_SHORT).show();
             submit.setEnabled(false);
         } else if (name.getText().toString().length() > 25) { // Check if longer than 25
-            Toast.makeText(getApplicationContext(), "Username too long", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Username too long", Toast.LENGTH_SHORT).show();
             submit.setEnabled(false);
         } else if (!name.getText().toString().matches("[a-zA-Z0-9]*")) { // Check if alphanumeric
             Toast.makeText(getApplicationContext(), "Username must only be alphanumeric with no space", Toast.LENGTH_SHORT).show();
             submit.setEnabled(false);
         } else {
-            Toast.makeText(getApplicationContext(), "Awesome username!", Toast.LENGTH_LONG).show();
-            player.setUserName(name.getText().toString());
+            Toast.makeText(getApplicationContext(), "Awesome username!", Toast.LENGTH_SHORT).show();
             Constants.playerName = name.getText().toString();
             //pdb.addPlayer(player);
             // Added player, so increment count
-            StartGameUsername.globalplayercount++;
             Constants.gameId = secret.getText().toString();
             data.put("playerName", Constants.playerName);
             data.put("gameId" , Constants.gameId);

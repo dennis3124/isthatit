@@ -59,8 +59,6 @@ app.post('/pic', function(req, res) {
 
 // Import the Guessit game file.
 var guessit= require('./guessit');
-
-
 // Reduce the logging output of Socket.IO
 io.set('log level',1);
 

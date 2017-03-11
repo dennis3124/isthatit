@@ -2,8 +2,11 @@ package com.example.guessit.guessit;
 
 import android.Manifest;
 import android.app.AlertDialog;
+<<<<<<< HEAD
 import android.app.ProgressDialog;
 import android.content.Context;
+=======
+>>>>>>> ddf456fba41f6b29603539c7ab816d383bde9666
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -20,7 +23,6 @@ import android.os.Bundle;
 import android.support.v4.content.CursorLoader;
 import android.util.Base64;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.content.pm.PackageManager;
 import android.support.v7.app.AppCompatActivity;
@@ -31,6 +33,7 @@ import android.os.CountDownTimer;
 import android.widget.TextView;
 import android.widget.Toast;
 
+<<<<<<< HEAD
 import com.android.internal.http.multipart.MultipartEntity;
 import com.github.nkzawa.emitter.Emitter;
 import com.github.nkzawa.socketio.client.Url;
@@ -49,6 +52,8 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
+=======
+>>>>>>> ddf456fba41f6b29603539c7ab816d383bde9666
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -67,10 +72,12 @@ import java.util.Map;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
+
 import static android.R.attr.data;
 import static com.example.guessit.guessit.Constants.gameId;
 import static com.example.guessit.guessit.Constants.testUrl;
 import static com.example.guessit.guessit.HintActivity.timeRound;
+
 
 
 public class GamePage extends AppCompatActivity {
@@ -79,7 +86,9 @@ public class GamePage extends AppCompatActivity {
     Button viewPic;
     Button testResult;
     Button exitGame;
+
     static String path; // file path
+
     private Uri file;
     private ImageView imageView;
     Button viewScoreTableButton;
@@ -88,9 +97,10 @@ public class GamePage extends AppCompatActivity {
     CountDownTimer countDownTimer;
     public TextView timerView;
     private static final String FORMAT = "%02d:%02d";
-    private long startTime = timeRound * 1000 * 60;
+    private long startTime = 130*1000;
     private long interval = 1000;
     private AlertDialog.Builder alert_hint;
+
     TextView showName;
     final Context context = this;
     private Integer[] Imgid = {R.id.imageView12,R.id.imageView13,R.id.imageView14,R.id.imageView15,R.id.imageView16,R.id.imageView17,R.id.imageView18,R.id.imageView19 };
@@ -98,19 +108,9 @@ public class GamePage extends AppCompatActivity {
     private ImageView avatar;
     byte[] ba;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        JSONObject obj = new JSONObject();
-        try {
-            obj.put("gameId", Constants.gameId);
-            obj.put("avatarName", Constants.avatarName);
-            obj.put("playerName", Constants.playerName);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        Constants.socket.emit("getAllPlayers", obj);
-        Constants.socket.on("playersInRoom", handleAllPlayers);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_page);
         takePic = (Button)findViewById(R.id.takeimg);
@@ -121,8 +121,6 @@ public class GamePage extends AppCompatActivity {
         viewHintButton = (Button)findViewById(R.id.viewHintButton);
         viewScoreTableButton = (Button)findViewById(R.id.viewScoreButton);
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
-        showName = (TextView)findViewById(R.id.showuser);
-        avatar = (ImageView)findViewById(R.id.avatarImg);
 
         viewScoreTableButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -163,7 +161,6 @@ public class GamePage extends AppCompatActivity {
             }
         });
 
-        // Obtain permission to take picture and permission to write it storage
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             takePic.setEnabled(false);
             ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE }, 0);
@@ -175,8 +172,8 @@ public class GamePage extends AppCompatActivity {
         //Countdown timer  + Progress Bar
         countDownTimer = new CountDownTimer(startTime, interval) {
             @Override
-            public void onTick(long millisUntilFinished) { // milliusuntilfinished is the amt of time until finished
-                int progress = (int)(millisUntilFinished/1000); // Need to get this value right
+            public void onTick(long millisUntilFinished) {
+                int progress = (int)(millisUntilFinished/1000);
                 progressBar.setProgress(progressBar.getMax()-progress);
 
                 // Need code for written time
@@ -190,10 +187,15 @@ public class GamePage extends AppCompatActivity {
             @Override
             public void onFinish() {
                 Log.d("Time", "Up!");
+
                 timerView.setText("You are out of time!");
                 // When done, it should go to image page.
                 View rootview = getWindow().getDecorView().getRootView();
                 confirmImage(rootview);
+
+
+                timerView.setText("Done");
+                // When done, it should go to image page.
 
             }
         };
@@ -341,5 +343,6 @@ public class GamePage extends AppCompatActivity {
         }
 
     }
+
 }
 
