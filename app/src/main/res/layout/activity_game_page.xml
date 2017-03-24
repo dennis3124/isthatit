@@ -35,6 +35,7 @@
         android:id="@+id/imageview"
         android:layout_centerInParent="true"
         android:layout_alignParentLeft="true"
+        android:layout_below="@+id/avatarImg"
         android:layout_alignLeft="@+id/viewHintButton"
         android:layout_alignStart="@+id/viewHintButton" />
 
@@ -49,17 +50,6 @@
         android:layout_alignLeft="@+id/takeimg"
         android:layout_alignStart="@+id/takeimg" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hi @user! Time's almost up."
-        android:textSize="20dp"
-        android:id="@+id/textView11"
-        android:layout_marginTop="22dp"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -71,6 +61,22 @@
         android:layout_above="@+id/viewScoreButton"
         android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/countDownTimer"
+        android:layout_alignBottom="@+id/progressBar"
+        android:layout_alignRight="@+id/showuser"
+        android:layout_alignEnd="@+id/showuser" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/avatarImg"
+        android:layout_alignBottom="@+id/progressBar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -80,28 +86,35 @@
         android:minWidth="200dp"
         android:progress="0"
         android:id="@+id/progressBar"
-        android:layout_below="@+id/textView11"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_marginTop="18dp"
-        android:visibility="visible"/>
+        android:visibility="visible"
+        android:layout_below="@+id/showuser"
+        android:layout_alignLeft="@+id/showuser"
+        android:layout_alignStart="@+id/showuser" />
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/countDownTimer"
-        android:layout_alignBottom="@+id/progressBar"
-        android:layout_alignRight="@+id/textView11"
-        android:layout_alignEnd="@+id/textView11" />
+        android:text="Hieeeeeee"
+        android:textSize="20dp"
+        android:id="@+id/showuser"
+        android:layout_marginTop="28dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/confirmimg"
+        android:layout_alignEnd="@+id/confirmimg" />
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/hero3"
-        android:id="@+id/imageView"
-        android:layout_alignBottom="@+id/progressBar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
+    <TextView
+        android:text="Hello"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView10"
+        android:layout_alignBaseline="@+id/showuser"
+        android:layout_alignBottom="@+id/showuser"
+        android:layout_toLeftOf="@+id/showuser"
+        android:layout_toStartOf="@+id/showuser"
+        android:layout_marginRight="22dp"
+        android:layout_marginEnd="22dp" />
 
     <Button
         android:text="Result"
@@ -121,5 +134,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_toLeftOf="@+id/testResult"/>
+
 
 </RelativeLayout>

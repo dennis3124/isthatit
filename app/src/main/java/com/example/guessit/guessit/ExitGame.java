@@ -40,7 +40,7 @@ public class ExitGame extends AppCompatActivity{
             @Override
             public void onClick(View v){
                 Toast.makeText(getApplicationContext(), "Player exits game", Toast.LENGTH_LONG).show();
-                StartGameUsername.globalplayercount--;
+                //StartGameUsername.globalplayercount--;
                 data.remove(Constants.playerName);
 
                 exitSystem();
