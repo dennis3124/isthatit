@@ -224,6 +224,7 @@ public class GamePage extends AppCompatActivity {
         if (requestCode == 100) {
             if (resultCode == RESULT_OK) {
                 imageView.setImageURI(file); // set the picture on the view using the uri
+                Toast.makeText(context, "You failed to upload img!", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -287,12 +288,6 @@ public class GamePage extends AppCompatActivity {
         return new File(mediaStorageDir.getPath() + File.separator +
                 "IMG_"+ uniqueStamp + ".jpg");
     }
-
-
-    @Override
-    public void onBackPressed() {
-    }
-
 
 
 

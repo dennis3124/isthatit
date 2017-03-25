@@ -97,7 +97,7 @@ public class JoinGameUsername extends AppCompatActivity {
     }
     public void checkUserName (View view){
         // Check if shorter than 1
-        if (name.getText().toString().length() < 1) {
+        if (name.getText().toString().length() < 0) {
             Toast.makeText(getApplicationContext(), "Username too short", Toast.LENGTH_SHORT).show();
             submit.setEnabled(false);
         } else if (name.getText().toString().length() > 25) { // Check if longer than 25
