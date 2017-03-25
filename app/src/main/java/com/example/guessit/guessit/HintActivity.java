@@ -33,6 +33,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
 public class HintActivity extends AppCompatActivity {
 
     // Global var. for ready & notification
@@ -66,6 +67,7 @@ public class HintActivity extends AppCompatActivity {
         Constants.socket.on("newPlayerEntered", newPlayerEntered);
         Constants.socket.on("startGame", startGame);
         Constants.socket.on("hintGiver", notifyHintGiver);
+        Constants.socket.on("goToPicturePage", goToPicturePage);
         //Pop up notification if all players are ready
         gameId = (TextView) findViewById(R.id.textView16);
         String newGameIdString = gameId.getText().toString();
@@ -198,6 +200,13 @@ public class HintActivity extends AppCompatActivity {
 
     }
 
+    public Emitter.Listener goToPicturePage = new Emitter.Listener() {
+        @Override
+        public void call(Object... args) {
+            goToPicture();
+        }
+    };
+
     public Emitter.Listener notifyHintGiver = new Emitter.Listener() {
         @Override
         public void call(Object... args) {
@@ -209,7 +218,7 @@ public class HintActivity extends AppCompatActivity {
     public Emitter.Listener startGame = new Emitter.Listener() {
         @Override
         public void call(Object... args) {
-          goToGamePage();
+            goToGamePage();
         }
     };
 
@@ -253,46 +262,72 @@ public class HintActivity extends AppCompatActivity {
                 if(hintGiverSocket.equals(Constants.sockId)) {
                     //Toast.makeText(getApplicationContext(), "You're selected as the hint giver", Toast.LENGTH_LONG).show();
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setTitle("You are selected as the Hint Giver");
+                    LinearLayout layout = new LinearLayout(context);
+                    layout.setOrientation(LinearLayout.VERTICAL);
                     final EditText input = new EditText(context);
-                    final int maxLength = 50;
+                    //builder.setTitle("You are selected as the Hint Giver");
+                    input.setHint("Please enter a hint and select time for the next round");
+                    layout.addView(input);
+                    final Spinner time = new Spinner(context);
+                    String[] timechoices = {"1 Min", "2 Min", "3 Min"};
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, timechoices);
+                    time.setAdapter(adapter);
+                    layout.addView(time);
+
+                    final int maxLength = 20;
                     final int minLength = 1;
                     input.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxLength + 1)});
                     input.setInputType(InputType.TYPE_CLASS_TEXT);
 
                     input.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                    }
-                    @Override
-                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        @Override
+                        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                        }
+                        @Override
+                        public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                    }
-                    @Override
-                    public void afterTextChanged(Editable s) {
-                        if (s.length() < minLength || s.length() > maxLength)
-                            new AlertDialog.Builder(context).setTitle("The number of characters should be between 1 and 50")
-                                    .setPositiveButton(android.R.string.ok, null).show();
-                    }
+                        }
+                        @Override
+                        public void afterTextChanged(Editable s) {
+                            if (s.length() < minLength || s.length() > maxLength)
+                                new AlertDialog.Builder(context).setTitle("The number of characters should be between 1 and 50")
+                                        .setPositiveButton(android.R.string.ok, null).show();
+                        }
                     });
 
-                    builder.setView(input);
+                    builder.setView(layout);
                     builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Constants.roundHint = input.getText().toString();
-                        Constants.socket.emit("startGame", Constants.gameId);
-                        Toast.makeText(context, "Hint set successfully!", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-                //alert_setHint.create();
-                builder.show();
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Constants.roundHint = input.getText().toString();
+                            //startActivity(new Intent(HintActivity.this, ImagePage.class));
+
+                            hint = input.getText().toString();
+                            // Get time selected
+                            String timeSelection = time.getSelectedItem().toString();
+
+                            if (timeSelection == "1 Min") {
+                                timeRound = 1;
+                            } else if (timeSelection == "2 Min") {
+                                timeRound = 2;
+                            } else if (timeSelection == "3 Min") {
+                                timeRound = 3;
+                            }
+                            Constants.time = timeRound;
+                            Log.d("Time in hint is: ", String.valueOf(Constants.time));
+                            Toast.makeText(context, "Hint and time set successfully!", Toast.LENGTH_SHORT).show();
+                            Constants.socket.emit("startGame", Constants.gameId);
+
+                        }
+                    });
+                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    //alert_setHint.creat
+                    builder.show();
                 }
             }
         });
@@ -300,7 +335,12 @@ public class HintActivity extends AppCompatActivity {
     }
 
     public void goToGamePage() {
-        startActivity(new Intent(this, GamePage.class));
+        Intent intent = new Intent(getBaseContext(), GamePage.class);
+        Bundle bundle = new Bundle();
+
+        bundle.putString("TIME", Integer.toString(timeRound));
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
     public void createAvatar(String avatarName) {
         Log.d("Avatar name is: ", avatarName);
@@ -317,11 +357,15 @@ public class HintActivity extends AppCompatActivity {
             }
         });
     }
-
+    public void goToPicture() {startActivity(new Intent(this, ImagePage.class));}
     public void ready(View view) {
         Constants.socket.emit("ready", Constants.gameId);
         Button ready = (Button)findViewById(R.id.button3);
         ready.setEnabled(false);
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 
 

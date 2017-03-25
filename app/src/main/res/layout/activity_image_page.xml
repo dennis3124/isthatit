@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_image_page"
     android:layout_width="match_parent"
@@ -10,94 +11,79 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.guessit.guessit.ImagePage">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Waiting for hint giver to approve picture ..."
-        android:textSize="20dp"
-        android:id="@+id/textView12"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Score?"
-        android:layout_alignParentBottom="true"
+    <ImageButton
+        android:layout_width="150dp"
+        android:id="@+id/imageButton17"
+        android:background="@android:drawable/screen_background_light_transparent"
+        android:layout_below="@+id/imageButton20"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/button2"
-        android:onClick="goToWaitingPg"/>
+        android:layout_height="130dp" />
 
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView2"
+        android:layout_width="150dp"
+        android:id="@+id/imageButton18"
+        android:background="@android:drawable/screen_background_light_transparent"
+        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="90dp"
-        android:layout_marginEnd="90dp"
-        android:id="@+id/imageButton17" />
+        android:layout_height="130dp" />
 
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView2"
-        android:onClick="goToWaitingPg"
-        android:layout_marginTop="24dp"
-        android:layout_below="@+id/textView12"
-        android:layout_alignRight="@+id/button2"
-        android:layout_alignEnd="@+id/button2" />
+        android:layout_width="150dp"
+        android:id="@+id/imageButton19"
+        android:background="@android:drawable/screen_background_light_transparent"
+        android:layout_below="@+id/imageButton17"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_height="130dp" />
 
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageButton18"
-        android:layout_alignLeft="@+id/imageButton17"
-        android:layout_alignStart="@+id/imageButton17"
-        android:id="@+id/imageButton19" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageButton20"
-        android:layout_alignLeft="@+id/imageButton19"
-        android:layout_alignStart="@+id/imageButton19"
-        android:id="@+id/imageButton21" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageButton22"
-        android:layout_alignLeft="@+id/imageButton21"
-        android:layout_alignStart="@+id/imageButton21"
-        android:id="@+id/imageButton23" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton18"
-        android:layout_marginTop="96dp"
-        android:layout_below="@+id/imageView2"
-        android:layout_alignLeft="@+id/imageView2"
-        android:layout_alignStart="@+id/imageView2" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:id="@+id/imageButton20"
+        android:layout_width="150dp"
+        android:id="@+id/imageButton24"
+        android:background="@android:drawable/screen_background_light_transparent"
         android:layout_below="@+id/imageButton18"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_height="130dp"
+        android:layout_above="@+id/imageButton25"
         android:layout_alignLeft="@+id/imageButton18"
         android:layout_alignStart="@+id/imageButton18" />
 
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton22"
-        android:layout_above="@+id/button2"
-        android:layout_alignRight="@+id/button2"
-        android:layout_alignEnd="@+id/button2"
-        android:layout_marginBottom="51dp" />
+        android:layout_width="150dp"
+        android:id="@+id/imageButton25"
+        android:background="@android:drawable/screen_background_light_transparent"
+        android:layout_below="@+id/imageButton19"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_height="130dp" />
 
+    <ImageButton
+        android:layout_width="150dp"
+        android:id="@+id/imageButton26"
+        android:background="@android:drawable/screen_background_light_transparent"
+        android:layout_below="@+id/imageButton24"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_height="130dp" />
+
+    <ImageButton
+        android:layout_width="150dp"
+        android:id="@+id/imageButton27"
+        android:background="@android:drawable/screen_background_light_transparent"
+        android:layout_below="@+id/imageButton25"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_height="130dp" />
+
+    <ImageButton
+        android:layout_width="150dp"
+        android:id="@+id/imageButton28"
+        android:background="@android:drawable/screen_background_light_transparent"
+        android:layout_height="130dp"
+        android:layout_below="@+id/imageButton26"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

@@ -19,7 +19,7 @@ exports.initGame = function(sio, socket){
     gameSocket.on('startGame', startGame);
     gameSocket.on('hostStartGame', hostStartGame);
     gameSocket.on('hostNextRound', hostNextRound);
-
+    gameSocket.on('sendImg', sendImage);
     // Player Events
     gameSocket.on('playerJoinGame', playerJoinGame);
     gameSocket.on('playerAnswer', playerAnswer);
@@ -28,7 +28,8 @@ exports.initGame = function(sio, socket){
     gameSocket.on('putPlayer', putPlayer);
     gameSocket.on('disconnect', removePlayer);
     gameSocket.on('leaveRoom', playerLeftRoom);
-    
+    gameSocket.on('decodedImg', sendCorrectImg);
+
 }
 
 /* *******************************
@@ -88,7 +89,30 @@ function ready(gameId) {
 }
 
 function startGame(gameId) {
-     io.sockets.in(gameId).emit('startGame');
+	var index;
+	var room = io.sockets.adapter.rooms[gameId];
+    var playersInRoom = [];
+ 
+	for(var i = 0; i < games.length; i++) {
+		if(games[i].gameId == gameId) {
+			index = i;
+		}
+	}
+
+    for(var i = 0; i < players.length; i++) {
+    	    if(room.sockets[players[i].socketId]==true) {
+    	        playersInRoom.push(players[i]);
+    	        io.sockets.in(playersInRoom[i].socketId).emit('startGame');
+    	    }
+    } 
+    
+    
+    // console.log(games[index]);
+    // console.log(gameId);
+    // console.log(games);
+    var hintGiverSock = playersInRoom[games[index].hintGiver].socketId;
+    games[index].hintGiver++;
+    io.sockets.to(hintGiverSock).emit('goToPicturePage');
 }
 
 function hostStartGame(gameId) {
@@ -167,12 +191,17 @@ function getAllPlayers(data) {
             playersInRoom.push(players[i]);
         }
     }
+    var imgSubmitted;
     this.emit('playersInRoom', playersInRoom);
     this.broadcast.to(data.gameId).emit('newPlayerEntered', data);
-    //console.log(playersInRoom);
+    this.broadcast.to(data.gameId).emit('timerIs', data.timer);
     
 }
 
+function sendImage (data) {
+    	this.broadcast.to(data.gameId).emit('newImageSubmitted', data);
+
+}
 
 /**
  * A player has tapped a word in the word list.
@@ -220,6 +249,10 @@ function removePlayer() {
     
 }
 
+
+
+
+
 /* *************************
    *                       *
    *      GAME LOGIC       *
@@ -227,7 +260,7 @@ function removePlayer() {
    ************************* */
 
 function sendHintGiver(gameId, index) {
-    var room = io.sockets.adapter.rooms[gameId];
+	var room = io.sockets.adapter.rooms[gameId];
     var playersInRoom = [];
 
     for(var i = 0; i < players.length; i++) {
@@ -238,4 +271,9 @@ function sendHintGiver(gameId, index) {
     var hintGiverSock = playersInRoom[games[index].hintGiver].socketId;
     io.sockets.in(gameId).emit('hintGiver', hintGiverSock);
     //console.log(hintGiverSock);
+}
+
+function sendCorrectImg(data) {
+    //console.log(data.decodedImg);
+    io.sockets.in(data.gameId).emit('correctImg', data.decodedImg);
 }

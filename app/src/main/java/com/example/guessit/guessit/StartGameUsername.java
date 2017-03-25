@@ -16,6 +16,7 @@ public class StartGameUsername extends AppCompatActivity {
     TextView gameId;
     Players player;
     Games game;
+    static int globalplayercount = 0;
     PlayerDBHandler pdb = new PlayerDBHandler(this);
 
     @Override
