@@ -119,6 +119,7 @@ public class GamePage extends AppCompatActivity {
         viewHintButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                //startActivity(new Intent(GamePage.this, HintPage.class));
                 alert_hint = new AlertDialog.Builder(GamePage.this);
                 alert_hint.setTitle("Hint");
                 alert_hint.setMessage("");
@@ -128,6 +129,7 @@ public class GamePage extends AppCompatActivity {
                     }
                 });
                 alert_hint.show();
+                //startActivity(new Intent(GamePage.this, HintPage.class));
             }
         });
 
@@ -152,6 +154,11 @@ public class GamePage extends AppCompatActivity {
 
 
         timerView = (TextView) findViewById(R.id.countDownTimer);
+        timerView.setText(""+String.format(FORMAT,
+                TimeUnit.MILLISECONDS.toMinutes(startTime) - TimeUnit.HOURS.toMinutes(
+                        TimeUnit.MILLISECONDS.toHours(startTime)),
+                TimeUnit.MILLISECONDS.toSeconds(startTime) - TimeUnit.MINUTES.toSeconds(
+                        TimeUnit.MILLISECONDS.toMinutes(startTime))));
 
     }
 
@@ -173,11 +180,14 @@ public class GamePage extends AppCompatActivity {
                             progressBar.setProgress(progressBar.getMax()-progress);
 
                             // Need code for written time
+                            /*
                             timerView.setText(""+String.format(FORMAT,
                                     TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(
                                             TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
                                     TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
                                             TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+                                            */
+
                         }
 
                         @Override
