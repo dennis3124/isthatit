@@ -3,11 +3,15 @@ package com.example.guessit.guessit;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 /**
  * Created by zhan1803 on 2/7/2017.
  */
 public class HintPage extends Activity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);

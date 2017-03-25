@@ -39,7 +39,7 @@
         <activity android:name=".ResultPage" />
         <activity android:name=".WinnerPage" />
         <activity android:name=".ExitGame" />
-        <activity android:name=".PicturePage"></activity>
+        <activity android:name=".PicturePage" />
     </application>
 
 </manifest>

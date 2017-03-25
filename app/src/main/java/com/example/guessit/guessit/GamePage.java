@@ -14,6 +14,7 @@ import android.os.AsyncTask;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.SyncStateContract;
+import android.support.test.espresso.core.deps.guava.hash.HashingInputStream;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.os.Bundle;
@@ -119,6 +120,7 @@ public class GamePage extends AppCompatActivity {
         viewHintButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                //startActivity(new Intent(GamePage.this, HintPage.class));
                 alert_hint = new AlertDialog.Builder(GamePage.this);
                 alert_hint.setTitle("Hint");
                 alert_hint.setMessage(HintActivity.hint);
@@ -128,6 +130,7 @@ public class GamePage extends AppCompatActivity {
                     }
                 });
                 alert_hint.show();
+                //startActivity(new Intent(GamePage.this, HintPage.class));
             }
         });
 
@@ -152,8 +155,14 @@ public class GamePage extends AppCompatActivity {
 
 
         timerView = (TextView) findViewById(R.id.countDownTimer);
-
+        timerView.setText(""+String.format(FORMAT,
+                TimeUnit.MILLISECONDS.toMinutes(startTime) - TimeUnit.HOURS.toMinutes(
+                        TimeUnit.MILLISECONDS.toHours(startTime)),
+                TimeUnit.MILLISECONDS.toSeconds(startTime) - TimeUnit.MINUTES.toSeconds(
+                        TimeUnit.MILLISECONDS.toMinutes(startTime))));
     }
+
+
 
     public Emitter.Listener setTimer = new Emitter.Listener() {
         @Override
@@ -167,17 +176,21 @@ public class GamePage extends AppCompatActivity {
                 public void run() {
                     countDownTimer = new CountDownTimer(startTime, interval) {
                         //final  int time = startTime;
+
+
                         @Override
                         public void onTick(long millisUntilFinished) {
                             int progress = (int)(millisUntilFinished/1000);
                             progressBar.setProgress(progressBar.getMax()-progress);
 
                             // Need code for written time
+                            /*
                             timerView.setText(""+String.format(FORMAT,
                                     TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(
                                             TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
                                     TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
                                             TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+                            */
                         }
 
                         @Override
@@ -188,7 +201,7 @@ public class GamePage extends AppCompatActivity {
                             // When done, it should go to image page.
 //                View rootview = getWindow().getDecorView().getRootView();
 //                confirmImage(rootview);
-                            goToImagePage();
+                            //goToImagePage();
 //                timerView.setText("Done");
                             // When done, it should go to image page.
 

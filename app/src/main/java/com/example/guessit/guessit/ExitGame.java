@@ -43,7 +43,7 @@ public class ExitGame extends AppCompatActivity{
                 StartGameUsername.globalplayercount--;
                 data.remove(Constants.playerName);
 
-                exitSystem();
+                //exitSystem();
             }
         });
     }

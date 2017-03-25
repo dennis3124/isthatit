@@ -55,7 +55,9 @@ public class ResultPage extends AppCompatActivity {
         scoreResultButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                startActivity(new Intent(ResultPage.this, ScoreTable.class));
+                //startActivity(new Intent(ResultPage.this, ScoreTable.class));
+                finish();
+                System.exit(0);
             }
         });
 
