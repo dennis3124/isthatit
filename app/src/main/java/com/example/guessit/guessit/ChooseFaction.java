@@ -16,7 +16,7 @@ public class ChooseFaction extends AppCompatActivity {
     }
 
     public void monsterFaction(View view) {
-        Intent intent = new Intent(this, MonsterActivity.class);
+        Intent intent = new Intent(this, HumanActivity.class);
         startActivity(intent);
     }
 

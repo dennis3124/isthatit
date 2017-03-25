@@ -121,7 +121,7 @@ public class GamePage extends AppCompatActivity {
             public void onClick(View v){
                 alert_hint = new AlertDialog.Builder(GamePage.this);
                 alert_hint.setTitle("Hint");
-                alert_hint.setMessage(HintActivity.hint);
+                alert_hint.setMessage("");
                 alert_hint.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {

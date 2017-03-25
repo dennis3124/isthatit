@@ -35,49 +35,49 @@ public class HumanActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void goToWaitingPage2(View view) {
-        Constants.avatarName = "hero7";
+        Constants.avatarName = "hero8";
 //        Log.d("Testing id", Integer.toString(view.getId()));
         emitData();
         Intent intent = new Intent(this, HintActivity.class);
         startActivity(intent);
     }
     public void goToWaitingPage3(View view) {
-        Constants.avatarName = "hero4";
+        Constants.avatarName = "hero8";
 //        Log.d("Testing id", Integer.toString(view.getId()));
         emitData();
         Intent intent = new Intent(this, HintActivity.class);
         startActivity(intent);
     }
     public void goToWaitingPage4(View view) {
-        Constants.avatarName = "hero6";
+        Constants.avatarName = "hero8";
 //        Log.d("Testing id", Integer.toString(view.getId()));
         emitData();
         Intent intent = new Intent(this, HintActivity.class);
         startActivity(intent);
     }
     public void goToWaitingPage5(View view) {
-        Constants.avatarName = "hero5";
+        Constants.avatarName = "hero8";
 //        Log.d("Testing id", Integer.toString(view.getId()));
         emitData();
         Intent intent = new Intent(this, HintActivity.class);
         startActivity(intent);
     }
     public void goToWaitingPage6(View view) {
-        Constants.avatarName = "hero3";
+        Constants.avatarName = "hero8";
 //        Log.d("Testing id", Integer.toString(view.getId()));
         emitData();
         Intent intent = new Intent(this, HintActivity.class);
         startActivity(intent);
     }
     public void goToWaitingPage7(View view) {
-        Constants.avatarName = "hero2";
+        Constants.avatarName = "hero8";
 //        Log.d("Testing id", Integer.toString(view.getId()));
         emitData();
         Intent intent = new Intent(this, HintActivity.class);
         startActivity(intent);
     }
     public void goToWaitingPage8(View view) {
-        Constants.avatarName = "hero1";
+        Constants.avatarName = "hero8";
 //        Log.d("Testing id", Integer.toString(view.getId()));
         emitData();
         Intent intent = new Intent(this, HintActivity.class);
