@@ -43,7 +43,7 @@ public class ResultPage extends AppCompatActivity {
         uploadPicButton = (Button) findViewById(R.id.uploadPicButton);
         Constants.socket.on("correctImg", acceptCorrectImg);    // receive the decoded string of image
 
-        finishResultButton.setEnabled(false);
+        //finishResultButton.setEnabled(false);
 
         finishResultButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -119,7 +119,7 @@ public class ResultPage extends AppCompatActivity {
 
             }
             else {
-                Toast.makeText(this, "You haven't picked Image", Toast.LENGTH_LONG).show();
+                //Toast.makeText(this, "You haven't picked Image", Toast.LENGTH_LONG).show();
 
             }
 
@@ -145,7 +145,7 @@ public class ResultPage extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                finishResultButton.setEnabled(true);
+                //finishResultButton.setEnabled(true);
                 ImageView imageView = (ImageView) findViewById(R.id.correctImg);
                 imageView.setImageBitmap(decodedByte);
             }

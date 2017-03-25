@@ -262,7 +262,7 @@ public class GamePage extends AppCompatActivity {
         }
 
         Constants.socket.emit("sendImg", obj2);
-        confirmImg.setEnabled(false);
+        //confirmImg.setEnabled(false);
         //Intent intent = new Intent(GamePage.this, ImagePage.class);
         //startActivity(intent);
 
