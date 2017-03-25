@@ -274,9 +274,9 @@ public class HintActivity extends AppCompatActivity {
                     time.setAdapter(adapter);
                     layout.addView(time);
 
-                    final int maxLength = 20;
+                    //final int maxLength = 20;
                     final int minLength = 1;
-                    input.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxLength + 1)});
+                    //input.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxLength + 1)});
                     input.setInputType(InputType.TYPE_CLASS_TEXT);
 
                     input.addTextChangedListener(new TextWatcher() {
@@ -289,7 +289,7 @@ public class HintActivity extends AppCompatActivity {
                         }
                         @Override
                         public void afterTextChanged(Editable s) {
-                            if (s.length() < minLength || s.length() > maxLength)
+                            if (s.length() < minLength /*|| s.length() > maxLength*/)
                                 new AlertDialog.Builder(context).setTitle("The number of characters should be between 1 and 50")
                                         .setPositiveButton(android.R.string.ok, null).show();
                         }

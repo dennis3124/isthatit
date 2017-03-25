@@ -77,7 +77,7 @@ function ready(gameId) {
             if(games[i].gameId == gameId) {
                 games[i].readyCount++;
                 //console.log(games[i]);
-                if(games[i].readyCount == games[i].playerCount && games[i].playerCount != 1) {
+                if(games[i].readyCount == games[i].playerCount) {
                     sendHintGiver(gameId,i);
                   //  io.sockets.in(gameId).emit('startGame');
                     break;

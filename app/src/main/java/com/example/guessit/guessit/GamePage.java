@@ -123,7 +123,7 @@ public class GamePage extends AppCompatActivity {
                 //startActivity(new Intent(GamePage.this, HintPage.class));
                 alert_hint = new AlertDialog.Builder(GamePage.this);
                 alert_hint.setTitle("Hint");
-                alert_hint.setMessage(HintActivity.hint);
+                alert_hint.setMessage("");
                 alert_hint.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
@@ -160,6 +160,7 @@ public class GamePage extends AppCompatActivity {
                         TimeUnit.MILLISECONDS.toHours(startTime)),
                 TimeUnit.MILLISECONDS.toSeconds(startTime) - TimeUnit.MINUTES.toSeconds(
                         TimeUnit.MILLISECONDS.toMinutes(startTime))));
+
     }
 
 
@@ -190,7 +191,10 @@ public class GamePage extends AppCompatActivity {
                                             TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
                                     TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
                                             TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
-                            */
+
+                                            */
+
+
                         }
 
                         @Override
@@ -266,7 +270,7 @@ public class GamePage extends AppCompatActivity {
         }
 
         Constants.socket.emit("sendImg", obj2);
-        confirmImg.setEnabled(false);
+        //confirmImg.setEnabled(false);
         //Intent intent = new Intent(GamePage.this, ImagePage.class);
         //startActivity(intent);
 
