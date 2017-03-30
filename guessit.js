@@ -29,6 +29,7 @@ exports.initGame = function(sio, socket){
     gameSocket.on('disconnect', removePlayer);
     gameSocket.on('leaveRoom', playerLeftRoom);
     gameSocket.on('decodedImg', sendCorrectImg);
+    gameSocket.on('roundWinner', getWinner);
 
 }
 
@@ -77,7 +78,7 @@ function ready(gameId) {
             if(games[i].gameId == gameId) {
                 games[i].readyCount++;
                 //console.log(games[i]);
-                if(games[i].readyCount == games[i].playerCount) {
+                if(games[i].readyCount == games[i].playerCount && games[i].playerCount != 1) {
                     sendHintGiver(gameId,i);
                   //  io.sockets.in(gameId).emit('startGame');
                     break;
@@ -89,21 +90,21 @@ function ready(gameId) {
 }
 
 function startGame(gameId) {
-	var index;
-	var room = io.sockets.adapter.rooms[gameId];
+    var index;
+    var room = io.sockets.adapter.rooms[gameId];
     var playersInRoom = [];
  
-	for(var i = 0; i < games.length; i++) {
-		if(games[i].gameId == gameId) {
-			index = i;
-		}
-	}
+    for(var i = 0; i < games.length; i++) {
+        if(games[i].gameId == gameId) {
+            index = i;
+        }
+    }
 
     for(var i = 0; i < players.length; i++) {
-    	    if(room.sockets[players[i].socketId]==true) {
-    	        playersInRoom.push(players[i]);
-    	        io.sockets.in(playersInRoom[i].socketId).emit('startGame');
-    	    }
+            if(room.sockets[players[i].socketId]==true) {
+                playersInRoom.push(players[i]);
+                io.sockets.in(playersInRoom[i].socketId).emit('startGame');
+            }
     } 
     
     
@@ -199,8 +200,10 @@ function getAllPlayers(data) {
 }
 
 function sendImage (data) {
-    	this.broadcast.to(data.gameId).emit('newImageSubmitted', data);
-
+        data.senderSocket = this.id;
+        console.log(this.id);
+        console.log(data);  
+        this.broadcast.to(data.gameId).emit('newImageSubmitted', data);
 }
 
 /**
@@ -260,7 +263,7 @@ function removePlayer() {
    ************************* */
 
 function sendHintGiver(gameId, index) {
-	var room = io.sockets.adapter.rooms[gameId];
+    var room = io.sockets.adapter.rooms[gameId];
     var playersInRoom = [];
 
     for(var i = 0; i < players.length; i++) {
@@ -276,4 +279,18 @@ function sendHintGiver(gameId, index) {
 function sendCorrectImg(data) {
     //console.log(data.decodedImg);
     io.sockets.in(data.gameId).emit('correctImg', data.decodedImg);
+}
+
+function getWinner(data) {
+    var winner;
+  for(var i = 0; i < players.length; i++) {
+    if(players[i].socketId == data.winnerSocket) {
+        winner = players[i];
+        players[i].score++;
+        break;
+    }
+  }
+  console.log(winner);
+  this.broadcast.to(data.gameId).emit("winner", winner);
+
 }

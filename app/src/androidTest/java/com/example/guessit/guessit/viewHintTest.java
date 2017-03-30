@@ -35,7 +35,7 @@ public class viewHintTest {
         onView(withId(R.id.checkusername2)).perform(click());
         onView(withId(R.id.gotofaction)).perform(click());
         onView(withId(R.id.button4)).perform(click());
-        onView(withId(R.id.button_toHintGiver)).perform(click());
+        //onView(withId(R.id.button_toHintGiver)).perform(click());
         // Press the ready button
         onView(withId(R.id.viewHintButton)).perform(click());
         // Check if a dialog is popped up

@@ -109,7 +109,7 @@ public class GamePage extends AppCompatActivity {
         viewHintButton = (Button)findViewById(R.id.viewHintButton);
         viewScoreTableButton = (Button)findViewById(R.id.viewScoreButton);
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
-
+        Constants.socket.on("winner", winner);
         viewScoreTableButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -270,7 +270,7 @@ public class GamePage extends AppCompatActivity {
         }
 
         Constants.socket.emit("sendImg", obj2);
-        //confirmImg.setEnabled(false);
+        confirmImg.setEnabled(false);
         //Intent intent = new Intent(GamePage.this, ImagePage.class);
         //startActivity(intent);
 
@@ -292,6 +292,40 @@ public class GamePage extends AppCompatActivity {
         return new File(mediaStorageDir.getPath() + File.separator +
                 "IMG_"+ uniqueStamp + ".jpg");
     }
+
+        public Emitter.Listener winner = new Emitter.Listener() {
+        @Override
+        public void call(Object... args) {
+            JSONObject obj = (JSONObject)args[0];
+            String winnerName = "";
+            try {
+                winnerName = obj.getString("playerName");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            announceWinner(winnerName);
+
+        }
+    };
+
+    @Override
+    public void onBackPressed() {
+    }
+
+    public void announceWinner(final String name) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                TextView winnerName = new TextView(context);
+                //winnerName.setText("Winner is : " + winnerName + "!\n");
+                Toast.makeText(getApplicationContext(),"Winner is : " + name + "!\n" , Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(GamePage.this, MainActivity.class));
+
+            }
+        });
+
+    }
+
 
 
 

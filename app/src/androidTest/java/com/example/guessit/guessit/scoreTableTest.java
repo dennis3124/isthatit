@@ -35,7 +35,7 @@ public class scoreTableTest {
         onView(withId(R.id.checkusername2)).perform(click());
         onView(withId(R.id.gotofaction)).perform(click());
         onView(withId(R.id.button4)).perform(click());
-        onView(withId(R.id.button_toHintGiver)).perform(click());
+        //onView(withId(R.id.button_toHintGiver)).perform(click());
         onView(withId(R.id.viewScoreButton)).perform(click());
         onView(withId(R.id.viewScoreButton)).check(matches(isEnabled()));
     }
@@ -48,7 +48,7 @@ public class scoreTableTest {
         onView(withId(R.id.checkusername2)).perform(click());
         onView(withId(R.id.gotofaction)).perform(click());
         onView(withId(R.id.button4)).perform(click());
-        onView(withId(R.id.button_toHintGiver)).perform(click());
+        //onView(withId(R.id.button_toHintGiver)).perform(click());
         //onView(withId(R.id.testResult)).perform(click());
         // Press the ready button
         onView(withId(R.id.scoreResultButton)).perform(click());
