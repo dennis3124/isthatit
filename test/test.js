@@ -1,6 +1,6 @@
 var assert = require('assert');
 var io = require('socket.io-client');
-var socketURL = 'http://13.13.13.100:8080';
+var socketURL = 'http://10.186.4.183:8080';
 var should = require('should');
 
 describe("server started correctly ", function() {

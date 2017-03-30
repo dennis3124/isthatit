@@ -29,6 +29,7 @@ exports.initGame = function(sio, socket){
     gameSocket.on('disconnect', removePlayer);
     gameSocket.on('leaveRoom', playerLeftRoom);
     gameSocket.on('decodedImg', sendCorrectImg);
+    gameSocket.on('roundWinner', getWinner);
 
 }
 
@@ -199,8 +200,10 @@ function getAllPlayers(data) {
 }
 
 function sendImage (data) {
-    	this.broadcast.to(data.gameId).emit('newImageSubmitted', data);
-
+        data.senderSocket = this.id;
+        console.log(this.id);
+        console.log(data);  
+        this.broadcast.to(data.gameId).emit('newImageSubmitted', data);
 }
 
 /**
@@ -276,4 +279,18 @@ function sendHintGiver(gameId, index) {
 function sendCorrectImg(data) {
     //console.log(data.decodedImg);
     io.sockets.in(data.gameId).emit('correctImg', data.decodedImg);
+}
+
+function getWinner(data) {
+    var winner;
+  for(var i = 0; i < players.length; i++) {
+    if(players[i].socketId == data.winnerSocket) {
+        winner = players[i];
+        players[i].score++;
+        break;
+    }
+  }
+  console.log(winner);
+  this.broadcast.to(data.gameId).emit("winner", winner);
+
 }
