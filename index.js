@@ -9,7 +9,7 @@ var guessit= require('./guessit');
 
 setInterval(function() {
     http.get("http://guessit-cs408.herokuapp.com");
-};
+});
             
 // Reduce the logging output of Socket.IO
 io.set('log level',1);
